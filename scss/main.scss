@@ -1,4 +1,5 @@
-$primary-color: lightgrey;
+$primary-color: #444;
+$accent-color: #32CD32;
 
 html{
     background: $primary-color;
@@ -12,4 +13,8 @@ html{
 
   main {
     flex: 1 0 auto;
+  }
+  
+  span {
+      color: $accent-color;
   }

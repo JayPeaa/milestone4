@@ -1,5 +1,5 @@
 html {
-  background: lightgrey; }
+  background: #444; }
 
 body {
   display: flex;
@@ -8,3 +8,6 @@ body {
 
 main {
   flex: 1 0 auto; }
+
+span {
+  color: #32CD32; }

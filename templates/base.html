@@ -25,9 +25,11 @@
 <main>
 
     <body>
+
         <nav>
             <div class="nav-wrapper grey darken-3">
-                <a href="#" class="brand-logo center">Cook<span>-e</span></a>
+                
+                <a href="#" class="brand-logo ">Cook<span>-e</span></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('index') }}">Home</a></li>
                     <li><a href="{{ url_for('about') }}">About</a></li>
@@ -35,19 +37,11 @@
                     <li><a href="{{ url_for('profile') }}">Profile</a></li>
                     <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
                 </ul>
-                <div class="nav-wrapper">
-                    <form>
-                        <div class="input-field">
-                            <input id="search" type="search" required>
-                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                            <i class="material-icons"><br>close</i>
-                        </div>
-
-                    </form>
-                </div>
-
             </div>
+            
+
         </nav>
+
 
         {% block content %} {% endblock %}
 </main>

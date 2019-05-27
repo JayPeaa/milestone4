@@ -24,11 +24,10 @@
 </header>
 <main>
 
-    <body>
-
+    <body class="bg-img">
+        <div class="overlay"></div>
         <nav>
             <div class="nav-wrapper grey darken-3">
-
                 <div class="fixed-action-btn">
                     <a class="btn-floating btn-large red"><i class="large material-icons">menu</i></a>
                     <ul>
@@ -38,26 +37,18 @@
                         <li><a href="{{ url_for('contact') }}" class="btn-floating blue"><i class="material-icons">email</i></a></li>
                     </ul>
                 </div>
-
-
-
-                <a href="#" class="brand-logo ">Cook<span>-e</span></a>
-
+              <a href="#" class="brand-logo ">Cook<span>-e</span></a>
             </div>
-
-
         </nav>
 
-
         {% block content %} {% endblock %}
+
 </main>
 <footer class="page-footer grey darken-3">
 
     <div class="footer-copyright">
         <div class="container">
             Data Centric Development | Milestone Project 4 | © 2019 John Hay
-
-
             <a class="grey-text text-lighten-4 right" href="https://github.com/JayPeaa" target="_blank"><i class="fab fa-github fa-2x  list-inline social-links"></i></a>
             <a class="grey-text text-lighten-3 right" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook fa-2x  list-inline social-links"></i></a>
             <a class="grey-text text-lighten-3 right" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-2x  list-inline social-links"></i></a>
@@ -68,7 +59,6 @@
         </div>
     </div>
 </footer>
-
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

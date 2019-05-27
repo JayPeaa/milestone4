@@ -1,33 +1,37 @@
 $primary-color: #444;
 $accent-color: #32CD32;
+$home-image: url(../images/home-background.jpg);
+$background-opacity: 0.7;
 
-html{
+
+html {
     background: $primary-color;
 }
 
- body {
+body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-  }
+    background: $home-image;
+    background-attachment: fixed;
+    background-size: cover;
+}
 
-  main {
+main {
     flex: 1 0 auto;
-  }
-  
-  span {
-      color: $accent-color;
-  }
-  
-  .fixed-action-btn{
-      top: -16px;
-  }
-  
-  /*****FOOTER*****/
-  
-  .social-links{
-      margin: 5px;
-      padding-bottom: 1em;
-  }
-  
-  
+}
+
+span {
+    color: $accent-color;
+}
+
+.fixed-action-btn {
+    top: -16px;
+}
+
+/*****FOOTER*****/
+
+.social-links {
+    margin: 5px;
+    padding-bottom: 1em;
+}

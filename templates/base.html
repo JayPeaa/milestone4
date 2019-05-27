@@ -52,12 +52,12 @@
         {% block content %} {% endblock %}
 </main>
 <footer class="page-footer grey darken-3">
-    
+
     <div class="footer-copyright">
         <div class="container">
             Data Centric Development | Milestone Project 4 | © 2019 John Hay
-        
-        
+
+
             <a class="grey-text text-lighten-4 right" href="https://github.com/JayPeaa" target="_blank"><i class="fab fa-github fa-2x  list-inline social-links"></i></a>
             <a class="grey-text text-lighten-3 right" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook fa-2x  list-inline social-links"></i></a>
             <a class="grey-text text-lighten-3 right" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-2x  list-inline social-links"></i></a>
@@ -76,17 +76,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <!-- Custom js -->
 <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
-
-<!--REMEMBER TO MOVE-->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.fixed-action-btn');
-        var instances = M.FloatingActionButton.init(elems, {
-            direction: 'down',
-            hoverEnabled: false
-        });
-    });
-</script>
 
 
 </body>

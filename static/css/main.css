@@ -4,7 +4,10 @@ html {
 body {
   display: flex;
   min-height: 100vh;
-  flex-direction: column; }
+  flex-direction: column;
+  background: url(../images/home-background.jpg);
+  background-attachment: fixed;
+  background-size: cover; }
 
 main {
   flex: 1 0 auto; }

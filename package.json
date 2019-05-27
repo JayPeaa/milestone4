@@ -1,0 +1,11 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "Cooking App",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o static/css/ --recursive" 
+  },
+  "author": "John P Hay",
+  "license": "MIT"
+}

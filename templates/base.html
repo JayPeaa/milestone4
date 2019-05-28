@@ -29,10 +29,10 @@
             <a href="{{ url_for('index') }}" class="brand-logo ">Cook<span>-e</span></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('index') }}" class="btn-floating red"><i class="material-icons">home</i></a></li>
-                <li><a href="{{ url_for('recipes') }}" class="btn-floating yellow darken-1"><i class="material-icons">local_dining</i></a></li>
-                <li><a href="{{ url_for('profile') }}" class="btn-floating green"><i class="material-icons">account_circle</i></a></li>
-                <li><a href="{{ url_for('contact') }}" class="btn-floating blue"><i class="material-icons">email</i></a></li>
+                <li><a href="{{ url_for('index') }}" class="btn-floating red tooltipped" data-tooltip="Home"><i class="material-icons">home</i></a></li>
+                <li><a href="{{ url_for('recipes') }}" class="btn-floating yellow darken-1 tooltipped" data-tooltip="Recipes" ><i class="material-icons">local_dining</i></a></li>
+                <li><a href="{{ url_for('profile') }}" class="btn-floating green tooltipped" data-tooltip="Profile"><i class="material-icons">account_circle</i></a></li>
+                <li><a href="{{ url_for('contact') }}" class="btn-floating blue tooltipped" data-tooltip="Contact"><i class="material-icons">email</i></a></li>
             </ul>
         </div>
     </nav>
@@ -61,12 +61,23 @@
 
     <div class="footer-copyright">
         <div class="container">
-            Data Centric Development | Milestone Project 4 | © 2019 John Hay
-            <a class="grey-text text-lighten-4 right" href="https://github.com/JayPeaa" target="_blank"><i class="fab fa-github fa-2x  list-inline social-links"></i></a>
-            <a class="grey-text text-lighten-3 right" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook fa-2x  list-inline social-links"></i></a>
-            <a class="grey-text text-lighten-3 right" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-2x  list-inline social-links"></i></a>
+            <div class="row">
+                <div class="col s12 l6">
+                    <h5>Cook<span>-e</span></h5>
+                    <p>Data Centric Development |Milestone Project 4 | © 2019 John Hay</p>
+                </div>
+                <div class="col s12 l4 offset-l2">
+                    <h5>Connet On Social</h5>
+                    <a class="grey-text text-lighten-4 right" href="https://github.com/JayPeaa" target="_blank"><i class="fab fa-github fa-2x  list-inline social-links"></i></a>
+                    <a class="grey-text text-lighten-3 right" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook fa-2x  list-inline social-links"></i></a>
+                    <a class="grey-text text-lighten-3 right" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-2x  list-inline social-links"></i></a>
+                    <a class="grey-text text-lighten-4 right" href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin fa-2x  list-inline social-links"></i></a>
+                    <a class="grey-text text-lighten-3 right" href="https://www.pinterest.com/" target="_blank"><i class="fab fa-pinterest fa-2x  list-inline social-links"></i></a>
+
+
+                </div>
+            </div>
         </div>
-    </div>
 </footer>
 
 <!-- jQuery -->

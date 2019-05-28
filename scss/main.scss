@@ -4,8 +4,14 @@ $home-image: url(../images/background-image.png);
 $background-opacity: 0.7;
 
 
+*{
+    color: white;
+}
+
+
 html {
     background: $primary-color;
+    
 }
 
 
@@ -42,8 +48,7 @@ span {
      color: #000;
 }
 
-
-
+ 
 
 /*****FOOTER*****/
 

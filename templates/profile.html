@@ -1,7 +1,82 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 
-	<h1 class="white-text">Profile <span >Page</span></h1>
+<h1 class="white-text center">Profile <span>Page</span></h1>
+
+<section class="section container" id="profile">
+    <div class="row">
+        <div class="col s12 l5 offset-l1 white-text">
+            <h3>Register Below</h3>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">face</i>
+                            <input id="first_name" type="text" class="validate">
+                            <label for="first_name">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">face</i>
+                            <input id="last_name" type="text" class="validate">
+                            <label for="last_name">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">email</i>
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="user_name" type="text" class="validate">
+                            <label for="user_name">User Name</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">security</i>
+                            <input id="password" type="text" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+
+
+                    <div class="input-field center">
+                        <div class="btn waves-effect waves-dark">Register</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col s12 l5 offset-l1 white-text ">
+            <h3>Sign In</h3>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="user_name" type="text" class="validate">
+                            <label for="user_name">User Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">security</i>
+                            <input id="password" type="text" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class="row"><br></div>
+                    <div class="row"><br><br></div>
+
+                    <div class="input-field center">
+                        <div class="btn waves-effect waves-dark">Log In</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+</section>
 
 {% endblock %}

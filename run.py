@@ -1,7 +1,9 @@
 import pymongo
 import os
 from flask import Flask, render_template, url_for, request, session, redirect
+from flask_bcrypt import Bcrypt
 import bcrypt
+
 
 
 MONGODB_URI = os.getenv("MONGO_URI")
@@ -66,9 +68,21 @@ def register():
         
     return render_template('register.html')
     
-@app.route("/login")
+@app.route("/login", methods=['POST'])
 def login():
-    return render_template("login.html")
+    users = user_coll
+    login_user = users.find_one({'user_name' : request.form['user_name']})
+    
+    if login_user:
+        if bcrypt.checkpw(request.form['pass'].encode('utf-8'), login_user['password']):
+            session['user_name'] = request.form['user_name']
+            return redirect(url_for('profile'))
+        
+    return 'Invalid username/password combination'
+        
+    
+    
+    
 
 @app.route("/logout")
 def logout():

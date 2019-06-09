@@ -39,8 +39,46 @@ def recipes():
     
 @app.route("/profile")
 def profile():
-    return render_template("profile.html")
 
+    if 'user_name' in session:
+        return render_template("profile.html")
+    return render_template("signin.html")
+    
+@app.route("/register", methods=['POST', 'GET'])
+def register():
+        
+    if request.method == 'POST':
+        users = user_coll
+        existing_user = users.find_one({'user_name': request.form['user_name']})
+        print(existing_user)
+        
+        if existing_user is None:
+            hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
+            users.insert({'user_name' : request.form['user_name'], 'password' : hashpass, 'first_name' : request.form['first_name'], 'last_name' : request.form['last_name'], 'email' : request.form['email']})
+            session['user_name'] = request.form['user_name']
+            return redirect( url_for("profile"))
+            
+        return 'That username already existis!'
+        
+    return render_template('register.html')
+    
+@app.route("/login", methods=['POST'])
+def login():
+    users = user_coll
+    login_user = users.find_one({'user_name' : request.form['user_name']})
+    
+    if login_user:
+        if bcrypt.checkpw(request.form['pass'].encode('utf-8'), login_user['password']):
+            session['user_name'] = request.form['user_name']
+            return redirect(url_for('profile'))
+        
+    return 'Invalid username/password combination'
+        
+  
+@app.route("/logout")
+def logout():
+    session.clear()
+    return render_template("profile.html")
 
     
 if __name__ == "__main__":

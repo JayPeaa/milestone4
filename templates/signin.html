@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block content %}
+
+
+<h1 class="white-text center">Sign <span>In</span></h1>
+
+<section class="section container" id="profile">
+    <div class="row">
+        <div class="col s12 l4 offset-l4 white-text ">
+            <div class="row">
+                <form class="col s12" method=POST action="{{ url_for('login')}}">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="user_name" type="text" class="validate" name="user_name">
+                            <label for="user_name">User Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">security</i>
+                            <input id="password" type="password" class="validate" name="pass">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class="row"><br></div>
+                    <div class="input-field center">
+                        <button class="btn waves-effect waves-dark">Log In</button> 
+                    </div>
+                    <div class="row"><br><br>
+                        <p class="center">Don't have an account? <a href="{{ url_for('register') }}"><span>Register here!</span></a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+</section>
+
+{% endblock %}

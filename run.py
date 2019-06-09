@@ -45,9 +45,9 @@ def recipes():
 @app.route("/profile")
 def profile():
     if 'user_name' in session:
-        return 'You are logged in as ' + session['user_name']
+       return render_template("profile.html") 
+    return render_template("signin.html")
     
-    return render_template("profile.html")
     
 @app.route("/register", methods=['POST', 'GET'])
 def register():

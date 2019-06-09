@@ -56,7 +56,9 @@ def profile():
     
 @app.route("/register", methods=['POST', 'GET'])
 def register():
-        
+    '''
+    Register a new user and check that user name does not already exist
+    '''
     if request.method == 'POST':
         users = user_coll
         existing_user = users.find_one({'user_name': request.form['user_name']})

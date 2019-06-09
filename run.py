@@ -44,7 +44,12 @@ def recipes():
     
 @app.route("/profile")
 def profile():
-    if 'user_name' in session:
+    '''
+    Display profile page if user in session
+    
+    '''
+    
+    if 'user_name' in session:  
        return render_template("profile.html") 
     return render_template("signin.html")
     

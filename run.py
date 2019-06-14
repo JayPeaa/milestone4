@@ -1,5 +1,6 @@
 import pymongo
 import os
+import json
 from flask import Flask, render_template, url_for, request, session, redirect
 import bcrypt
 
@@ -50,7 +51,8 @@ def profile():
     '''
     
     if 'user_name' in session:  
-       return render_template("profile.html") 
+       return render_template("profile.html")
+       
     return render_template("signin.html")
     
     

@@ -25,18 +25,30 @@
 <main>
 
     <nav>
-        
+
         <div class="nav-wrapper grey darken-3">
-            
+
             <a href="{{ url_for('index') }}" class="brand-logo ">Cook<span>-e</span></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('index') }}" class="btn-floating red tooltipped waves-effect waves-dark" data-tooltip="Home"><i class="material-icons">home</i></a></li>
-                <li><a href="{{ url_for('recipes') }}" class="btn-floating yellow darken-1 tooltipped waves-effect waves-dark" data-tooltip="Recipes" ><i class="material-icons">local_dining</i></a></li>
+                <li><a href="{{ url_for('recipes') }}" class="btn-floating yellow darken-1 tooltipped waves-effect waves-dark" data-tooltip="Recipes"><i class="material-icons">local_dining</i></a></li>
                 <li><a href="{{ url_for('profile') }}" class="btn-floating green tooltipped waves-effect waves-dark" data-tooltip="Profile"><i class="material-icons">account_circle</i></a></li>
                 <li><a href="{{ url_for('contact') }}" class="btn-floating blue tooltipped waves-effect waves-dark" data-tooltip="Contact"><i class="material-icons">email</i></a></li>
+                <div class="container">
+                    <div class="row right">
+                        <div class="col">
+                            {% if 'user_name' in session %}
+                            <h6 class="white-text">Welcome {{ session['user_name'] }}</h6>
+                            {% else %} {% endif %}
+                        </div>
+                    </div>
+                </div>
             </ul>
+
         </div>
+        </div>
+
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
@@ -55,7 +67,15 @@
 
 
 
-
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="white-test">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         {% block content %} {% endblock %}
 
 </main>

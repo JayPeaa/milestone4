@@ -55,8 +55,7 @@ def profile():
         user = user_coll.find_one({'user_name': session['user_name']}) #Load the user
         return render_template("profile.html", user=user) #Send user data to view
     
-    flash('Sorry, you must be signed in.')
-    return render_template("signin.html")
+    return render_template("login.html")
     
     
 @app.route("/register", methods=['POST', 'GET'])
@@ -74,11 +73,13 @@ def register():
             users.insert({'user_name' : request.form['user_name'], 'password' : hashpass, 'first_name' : request.form['first_name'], 'last_name' : request.form['last_name'], 'email' : request.form['email']})
             session['user_name'] = request.form['user_name']
             return redirect( url_for("profile"))
-            
-        return 'That username already existis!'
+        
+        flash('That username already existis!')    
+        return redirect( url_for("register"))
         
     return render_template('register.html')
     
+
 @app.route("/login", methods=['POST'])
 def login():
     users = user_coll
@@ -88,17 +89,17 @@ def login():
         if bcrypt.checkpw(request.form['pass'].encode('utf-8'), login_user['password']):
             session['user_name'] = request.form['user_name']
             return redirect(url_for('profile'))
-        
-    return 'Invalid username/password combination'
-        
     
-    
+    flash('Invalid username/password combination')
+    return render_template("login.html")
+        
+       
     
 
 @app.route("/logout")
 def logout():
     session.clear()
-    return render_template("signin.html")
+    return render_template("login.html")
     
 if __name__ == "__main__":
     app.secret_key = 'mysecret'

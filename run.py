@@ -8,7 +8,7 @@ import bcrypt
 
 MONGODB_URI = os.getenv("MONGO_URI")
 DBS_NAME = "cook-e"
-COLLECTION_NAME = "recipes"
+RECIPE_COLLECTION = "recipes"
 USER_COLLECTION = "users"
 
 def mongo_connect(url):
@@ -21,7 +21,7 @@ def mongo_connect(url):
         
 conn = mongo_connect(MONGODB_URI)
 
-coll = conn[DBS_NAME][COLLECTION_NAME]
+coll = conn[DBS_NAME][RECIPE_COLLECTION]
 user_coll = conn[DBS_NAME][USER_COLLECTION]
 
 documents = coll.find()
@@ -74,7 +74,7 @@ def register():
             session['user_name'] = request.form['user_name']
             return redirect( url_for("profile"))
         
-        flash('That username already existis!')    
+        flash('That username already existis!', 'flashstyling')    
         return redirect( url_for("register"))
         
     return render_template('register.html')
@@ -88,9 +88,9 @@ def login():
     if login_user:
         if bcrypt.checkpw(request.form['pass'].encode('utf-8'), login_user['password']):
             session['user_name'] = request.form['user_name']
-            return redirect(url_for('profile'))
+            return redirect(url_for('recipes'))
     
-    flash('Invalid username/password combination')
+    flash('Invalid username/password combination', 'flashstyling')
     return render_template("login.html")
         
        

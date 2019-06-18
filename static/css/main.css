@@ -30,3 +30,12 @@ span {
 .social-links {
   margin: 5px;
   padding-bottom: 1em; }
+
+/****FLASH MESSAGE****/
+.flashstyling {
+  text-align: center;
+  width: 50%;
+  color: limegreen;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto; }

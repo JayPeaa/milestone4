@@ -39,7 +39,7 @@
                     <div class="row right">
                         <div class="col">
                             {% if 'user_name' in session %}
-                            <h6 class="white-text">Welcome {{ session['user_name'] }}</h6>
+                            <h6 class="white-text ">Welcome: <span>{{ session['user_name'] }}</span></h6>
                             {% else %} {% endif %}
                         </div>
                     </div>
@@ -66,16 +66,13 @@
 
 
 
-
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="white-test">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
+        <div class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in messages %}
+            <div class="flashstyling">
+                {{ message }}
+            </div>
+            {% endfor %} {% endif %} {% endwith %}
+        </div>
         {% block content %} {% endblock %}
 
 </main>

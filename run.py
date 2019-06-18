@@ -1,7 +1,7 @@
 import pymongo
 import os
 import json
-from flask import Flask, render_template, url_for, request, session, redirect
+from flask import Flask, render_template, url_for, request, session, redirect, flash
 import bcrypt
 
 
@@ -41,7 +41,8 @@ def contact():
     
 @app.route("/recipes")
 def recipes():
-    return render_template("recipes.html")
+    recipes = coll.find()
+    return render_template("recipes.html", recipes=recipes)
     
 @app.route("/profile")
 def profile():
@@ -51,8 +52,10 @@ def profile():
     '''
     
     if 'user_name' in session:  
-       return render_template("profile.html")
-       
+        user = user_coll.find_one({'user_name': session['user_name']}) #Load the user
+        return render_template("profile.html", user=user) #Send user data to view
+    
+    flash('Sorry, you must be signed in.')
     return render_template("signin.html")
     
     

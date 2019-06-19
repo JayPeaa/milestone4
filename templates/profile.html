@@ -1,18 +1,18 @@
 {% extends 'base.html' %} {% block content %}
 
 
-<h1 class="white-text center">User <span>Profile</span></h1>
-
-<div class="container">
-    <h5>User Name: {{user.user_name}}</h5>
-    <h5>First Name: {{ user.first_name }}</h5>
-    <h5>Last Name: {{ user.last_name }}</h5>
-    <h5>Registered Email: {{ user.email }}</h5>
-</div>
-
-
-<div class="container">
+<div class="container pop-text">
     <div class="row">
+        <h1 class="white-text center">User <span>Profile</span></h1>
+
+        <div class="col s12 m2 l2">
+            <img src="{{user.profile_pic}}" class="circle profile_pic_img"></img>
+        </div>
+        <div class="col s12 m8 l8">
+            <p>Hey <span>{{ user.first_name }}!</span><br><br>Welcome to your profile page. <br><br> From this page you can access all you favourite recipes by clicking the button below. <br><br> You have registerd <span>{{ user.email }}</span> as your email
+                adress and your user name is <span>{{user.user_name}}</span>. <br> You will be asked for your user name and password each time you log in. <br><br><br>A welcome message will be displayed in the top right indicating when you are logged in.
+            </p>
+        </div>
         <div class="col s12 l4 offset-l4 white-text ">
             <div class="input-field center">
                 <button class="btn waves-effect waves-dark white-text"><a class="white-text" href='{{url_for('logout')}}' >Sign Out</a></button>

@@ -5,48 +5,46 @@
 
 <section class="section container" id="profile">
     <div class="row">
-        <div class="col s12 l6 offset-l3 white-text">
-            <div class="row">
-                <form method="POST" action="{{ url_for('register') }}" class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <i class="material-icons prefix">face</i>
-                            <input id="first_name" type="text" class="validate" name="first_name">
-                            <label for="first_name">First Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <i class="material-icons prefix">face</i>
-                            <input id="last_name" type="text" class="validate" name="last_name">
-                            <label for="last_name">Last Name</label>
-                        </div>
+        <div class="col s12 m6 l4 offset-m3 offset-l4 white-text">
+            <form method="POST" action="{{ url_for('register') }}" class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">face</i>
+                        <input id="first_name" type="text" class="validate" name="first_name">
+                        <label for="first_name">First Name</label>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">email</i>
-                            <input id="email" type="email" class="validate" name="email">
-                            <label for="email">Email</label>
-                        </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">face</i>
+                        <input id="last_name" type="text" class="validate" name="last_name">
+                        <label for="last_name">Last Name</label>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <i class="material-icons prefix">account_circle</i>
-                            <input id="user_name" type="text" class="validate" name="user_name">
-                            <label for="user_name">User Name</label>
-                        </div>
-
-                        <div class="input-field col s6">
-                            <i class="material-icons prefix">security</i>
-                            <input id="password" type="password" class="validate" name="pass">
-                            <label for="password">Password</label>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
+                        <input id="email" type="email" class="validate" name="email">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="user_name" type="text" class="validate" name="user_name">
+                        <label for="user_name">User Name</label>
                     </div>
 
-
-                    <div class="input-field center">
-                        <button type="submit" class="btn waves-effect waves-dark">Register</button>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">security</i>
+                        <input id="password" type="password" class="validate" name="pass">
+                        <label for="password">Password</label>
                     </div>
-                </form>
-            </div>
+                </div>
+
+
+                <div class="input-field center">
+                    <button type="submit" class="btn waves-effect waves-dark">Register</button>
+                </div>
+            </form>
         </div>
     </div>
 

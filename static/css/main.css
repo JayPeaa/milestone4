@@ -17,7 +17,7 @@ main {
   background-attachment: fixed;
   background-size: cover; }
 
-span {
+.highlighting {
   color: #32CD32; }
 
 .fixed-action-btn {

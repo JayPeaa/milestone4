@@ -32,9 +32,11 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('index') }}" class="btn-floating red tooltipped waves-effect waves-dark" data-tooltip="Home"><i class="material-icons">home</i></a></li>
-                <li><a href="{{ url_for('recipes') }}" class="btn-floating yellow darken-1 tooltipped waves-effect waves-dark" data-tooltip="Recipes"><i class="material-icons">local_dining</i></a></li>
+                <li><a href="{{ url_for('recipes') }}" class="btn-floating yellow darken-1 tooltipped waves-effect waves-dark" data-tooltip="View Recipes"><i class="material-icons">local_dining</i></a></li>
+                <li><a href="{{ url_for('add_recipe') }}" class="btn-floating blue darken-1 tooltipped waves-effect waves-dark" data-tooltip="Add Recipe"><i class="material-icons">add_circle</i></a></li>
                 <li><a href="{{ url_for('profile') }}" class="btn-floating green tooltipped waves-effect waves-dark" data-tooltip="Profile"><i class="material-icons">account_circle</i></a></li>
-                <li><a href="{{ url_for('contact') }}" class="btn-floating blue tooltipped waves-effect waves-dark" data-tooltip="Contact"><i class="material-icons">email</i></a></li>
+                <li><a href="{{ url_for('contact') }}" class="btn-floating red tooltipped waves-effect waves-dark" data-tooltip="Contact"><i class="material-icons">email</i></a></li>
+                <li><a href="{{ url_for('logout') }}" class="btn-floating yellow darken-1 tooltipped waves-effect waves-dark" data-tooltip="Log Out"><i class="material-icons">directions_run</i></a></li>
                 <div class="container">
                     <div class="row right">
                         <div class="col">

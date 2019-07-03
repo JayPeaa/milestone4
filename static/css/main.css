@@ -34,10 +34,6 @@ img {
   border-radius: 15px;
   margin-top: 1em; }
 
-.profile_pic_img {
-  width: 150px;
-  border: solid 3px white; }
-
 /***CONTACT US***/
 .pop-text {
   background-color: rgba(0, 0, 0, 0.5);
@@ -59,3 +55,10 @@ img {
   align-items: center;
   margin-left: auto;
   margin-right: auto; }
+
+/*****RECIPES*****/
+span {
+  color: #26a69a; }
+
+.card-title {
+  text-transform: capitalize; }

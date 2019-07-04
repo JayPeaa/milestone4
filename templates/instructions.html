@@ -1,50 +1,50 @@
 {% extends 'base.html' %} {% block content %}
 
-<h3 class="white-text center container"><br>Check It<span class="highlighting"> Out!</span></h3>
-
+<h3 class="white-text center container"><br>Let's<span class="highlighting"> Go!</br></br></span></h3>
 <div class="row">
-    <div class="container col s12 l8 m8">
-        <h1> Recipe Name </h1>
-
-        <p>Brief description of dish Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, placeat.</p>
-
-        <hr></hr>
-
-        <h2> Ingredients </h2>
-
-        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam alias id cum, rem laboriosam aspernatur. Dolore facere, dolores! Hic quibusdam similique, ipsum laborum. Architecto, amet ducimus eaque earum! Nulla, nisi.</p>
-
-        <hr></hr>
-
-        <p>Put icons and facts here like cooking time difficulty servings </p>
-    </div>
     {% for item in recipes %}
-    <div class="container col l4 m4 s12">
+    <div class="container col offset-l1 l3 offset-m2 m3 s12">
         <div class="card">
             <div class="card-image">
                 <img src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
                 <span class="card-title">{{ item.recipe_name }}</span>
             </div>
             <div class="card-content ">
-                <p class="black-text">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                <p class="black-text">This is some introductory text about the recipe Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, quaerat. Voluptatem illo saepe, doloremque maxime..</p>
             </div>
-
         </div>
     </div>
     {% endfor %}
 
+    <div class="row">
+        <div class="container col s12 offset-l1 l6 offset-m1 m6">
 
+            <h4> Ingredients </h4>
+
+            <p class="justify"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam alias id cum, rem laboriosam aspernatur. Dolore facere, dolores! Hic quibusdam similique, ipsum laborum. Architecto, amet ducimus eaque earum! Nulla, nisi.</p>
+            <div class="col l4 m4 s4">
+                <p class="center"><i class="medium material-icons orange-text center">access_time</i></br> 30 mins </p>
+            </div>
+            <div class="col l4 m4 s4">
+                <p class="center"><i class="medium material-icons orange-text center">network_check</i></br> Easy </p>
+            </div>
+            <div class="col l4 m4 s4">
+                <p class="center"><i class="medium material-icons orange-text center">restaurant</i></br> Serves 4 </p>
+            </div>
+
+            <h4> Directions </h4>
+
+            <p class="justify"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam alias id cum, rem laboriosam aspernatur. Dolore facere, dolores! Hic quibusdam similique, ipsum laborum. Architecto, amet ducimus eaque earum! Nulla, nisi.</p>
+
+            <h4> Author </h4>
+
+            <p> UserName </p>
+            <div class="container center">
+                <a class="btn-floating btn-medium waves-effect waves-light green tooltipped crud-btn" data-tooltip="Edit Recipe"><i class="material-icons">edit</i></a>
+                <a class="btn-floating btn-medium waves-effect waves-light red tooltipped crud-btn" data-tooltip="Delete Recipe"><i class="material-icons">delete</i></a>
+            </div>
+        </div>
+    </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 {% endblock %}

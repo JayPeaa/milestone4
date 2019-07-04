@@ -62,3 +62,6 @@ span {
 
 .card-title {
   text-transform: capitalize; }
+
+.crud-btn {
+  margin: 1em; }

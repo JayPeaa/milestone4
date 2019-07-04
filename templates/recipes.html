@@ -1,6 +1,11 @@
 {% extends 'base.html' %} {% block content %}
 
-<h3 class="white-text center container"><br>Recipe <span class="highlighting">Selection</span></h3>
+<h3 class="white-text center container"><br>Browse <span class="highlighting">Recipes</span></h3>
+
+<div class="container center">
+    <a href="{{ url_for('add_recipe') }}" class="btn-floating blue darken-1 tooltipped waves-effect waves-dark crud-btn" data-tooltip="Add Recipe"><i class="material-icons">add</i></a></li>
+    <a href="{{ url_for('profile') }}" class="btn-floating green tooltipped waves-effect waves-dark crud-btn" data-tooltip="My Recipes"><i class="material-icons">local_library</i></a>
+</div>
 
 <form>
     <div class="input-field container row">
@@ -54,10 +59,12 @@
                 <span class="card-title">{{ item.recipe_name }}</span>
             </div>
             <div class="card-content ">
-                <p class="black-text">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                <p class="black-text">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. </p>
             </div>
             <div class="card-action">
                 <a href="/instructions">View Recipe</a>
+                <span class="black-text right"> 1 <i class="material-icons orange-text right">favorite</i></span>
+
             </div>
         </div>
     </div>

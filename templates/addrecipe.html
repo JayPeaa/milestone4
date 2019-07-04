@@ -2,8 +2,40 @@
 
 <h3 class="white-text center container"><br>Add a<span class="highlighting"> Recipe</span></h3>
 
-<h1> hello {{ recipe_name}}</h1>
-
+<div class="row">
+    <div class="container">
+        <div class="input-field col s12 l8 m8">
+            <input value="" id="recipename" type="text" class="validate">
+            <label class="active" for="recipename">Recipe Name</label>
+        </div>
+        <div class="input-field col s12 l2 m2">
+            <select>
+      <option value="" disabled selected>Choose your option</option>
+      <option value="1">Easy</option>
+      <option value="2">Moderate</option>
+      <option value="3">Challenging</option>
+    </select>
+            <label>Difficulty</label>
+        </div>
+        <div class="input-field col s12 l2 m2">
+            <select>
+      <option value="" disabled selected>Choose your option</option>
+      <option value="1">Starter</option>
+      <option value="2">Main</option>
+      <option value="3">Dessert</option>
+    </select>
+            <label>Course Type</label>
+        </div>
+        <div class="input-field col s12 m12 l12">
+            <input value="" id="description" type="text" class="validate">
+            <label class="active" for="description">Description</label>
+        </div>
+         <div class="input-field col s12 m12 l12">
+            <input value="" id="ingredients" type="text" class="validate">
+            <label class="active" for="ingredients">Ingredients</label>
+        </div>
+    </div>
+</div>
 
 
 

@@ -2,19 +2,18 @@
 
 <h3 class="white-text center container"><br>Let's<span class="highlighting"> Go!</br></br></span></h3>
 <div class="row">
-    {% for item in recipes %}
     <div class="container col offset-l1 l3 offset-m2 m3 s12">
         <div class="card">
             <div class="card-image">
                 <img src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
-                <span class="card-title">{{ item.recipe_name }}</span>
+                <span class="card-title">{{ recipes.recipe_name }}</span>
             </div>
             <div class="card-content ">
                 <p class="black-text">This is some introductory text about the recipe Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, quaerat. Voluptatem illo saepe, doloremque maxime..</p>
             </div>
         </div>
     </div>
-    {% endfor %}
+   
 
     <div class="row">
         <div class="container col s12 offset-l1 l6 offset-m1 m6">

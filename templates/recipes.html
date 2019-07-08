@@ -62,7 +62,7 @@
                 <p class="black-text">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively. </p>
             </div>
             <div class="card-action">
-                <a href="/instructions">View Recipe</a>
+                <a href="{{ url_for('instructions', item_id=item._id) }}"/>View Recipe</a>
                 <span class="black-text right"> 1 <i class="material-icons orange-text right">favorite</i></span>
 
             </div>

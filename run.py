@@ -1,8 +1,6 @@
-import pymongo
-import os
-import json
+import pymongo, os, json, bcrypt
 from flask import Flask, render_template, url_for, request, session, redirect, flash
-import bcrypt
+from bson.objectid import ObjectId
 
 
 
@@ -44,9 +42,9 @@ def recipes():
     recipes = coll.find()
     return render_template("recipes.html", recipes=recipes)
     
-@app.route("/instructions")
-def instructions():
-    recipes = coll.find()
+@app.route("/instructions/<item_id>")
+def instructions(item_id):
+    recipes = coll.find_one({"_id": ObjectId(item_id)})
     return render_template("instructions.html", recipes=recipes)
 
 @app.route("/add_recipe")

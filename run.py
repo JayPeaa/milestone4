@@ -1,3 +1,4 @@
+from pprint import pprint
 import pymongo, os, json, bcrypt
 from flask import Flask, render_template, url_for, request, session, redirect, flash
 from bson.objectid import ObjectId
@@ -28,11 +29,6 @@ level_coll = conn[DBS_NAME][LEVEL_COLLECTION]
 course_coll = conn[DBS_NAME][COURSE_COLLECTION]
 allergens_coll = conn[DBS_NAME][ALLERGENS_COLLECTION]
 
-documents = coll.find()
-
-for doc in documents:
-    print(doc)
-
 app = Flask(__name__)
 
 @app.route("/")
@@ -58,10 +54,20 @@ def instructions(item_id):
 
 @app.route("/add_recipe")
 def add_recipe():
-    return render_template("addrecipe.html",
-    level = level_coll.find(),
-    course = course_coll.find(),
-    allergen = allergens_coll.find())
+    level = level_coll.find()
+    course = course_coll.find()
+    allergen = allergens_coll.find()
+
+    return render_template("addrecipe.html", level=level, course=course, allergen=allergen)
+    
+    
+@app.route("/insert_recipe", methods=['GET', 'POST'])
+def insert_recipe():
+    recipes = coll
+    #recipes.insert_one(request.form.to_dict())
+    pprint(request.form.to_dict())
+    return "Form posted to route... check terminal for details"
+    
 
 @app.route("/profile")
 def profile():
@@ -111,9 +117,7 @@ def login():
     
     flash('Invalid username/password combination', 'flashstyling')
     return render_template("login.html")
-        
-       
-    
+
 
 @app.route("/logout")
 def logout():

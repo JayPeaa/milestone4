@@ -4,10 +4,9 @@
 
 <div class="row">
     <div class="container">
-        <form>
-
+        <form action="{{url_for('insert_recipe')}}" method="POST">
             <div class="input-field col s12 l8 m8">
-                <input value="" id="recipename" type="text" class="validate">
+                <input value="" id="recipename" name="recipe_name" type="text" class="validate">
                 <label class="active" for="recipename">Recipe Name</label>
             </div>
             <div class="input-field col s12 l2 m2">
@@ -29,23 +28,27 @@
                 <label>Course</label>
             </div>
             <div class="input-field col s12 m12 l12">
-                <input value="" id="description" type="text" class="validate">
+                <input value="" id="description" name="description" type="text" class="validate">
                 <label class="active" for="description">Description</label>
             </div>
             <div class="input-field col s12 m12 l12">
-                <input value="" id="ingredients" type="text" class="validate">
+                <input value="" id="ingredients" name="ingredients" type="text" class="validate">
                 <label class="active" for="ingredients">Ingredients</label>
             </div>
+            <div class="input-field col s12 m12 l12">
+                <input value="" id="ingredients" name="instructions" type="text" class="validate">
+                <label class="active" for="ingredients">Instructions</label>
+            </div>
             <div class="input-field col s12 m4 l4">
-                <input value="" id="cuisine" type="text" class="validate">
+                <input value="" id="cuisine" name="cuisine" type="text" class="validate">
                 <label class="active" for="cuisine">Cuisine</label>
             </div>
             <div class="input-field col s12 m4 l4">
-                <input value="" id="time" type="text" class="validate">
+                <input value="" id="time" name="time_required" type="text" class="validate">
                 <label class="active" for="time">Time Required</label>
             </div>
             <div class="input-field col s12 m4 l4">
-                <input value="" id="serves" type="text" class="validate">
+                <input value="" id="serves" name="serves" type="text" class="validate">
                 <label class="active" for="serves">Serves</label>
             </div>
             <div class="input-field col s12">
@@ -68,7 +71,11 @@
                     </div>
                 </div>
             </div>
-            <div class="input-field center col s12 l12 m12">
+            <div class="input-field col s12 m4 l4">
+                <input value="{{session.user_name}}" id="user_name" name="user_name" type="text" disabled>
+                <label class="active" for="user_name">User Name</label>
+            </div>
+            <div class="input-field center col s12">
                 <input class="btn" type="submit" value="Submit" />
             </div>
     </div>

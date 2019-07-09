@@ -8,6 +8,9 @@ MONGODB_URI = os.getenv("MONGO_URI")
 DBS_NAME = "cook-e"
 RECIPE_COLLECTION = "recipes"
 USER_COLLECTION = "users"
+LEVEL_COLLECTION = "skill_level"
+COURSE_COLLECTION = "course_type"
+ALLERGENS_COLLECTION = "allergens"
 
 def mongo_connect(url):
     try:
@@ -21,6 +24,9 @@ conn = mongo_connect(MONGODB_URI)
 
 coll = conn[DBS_NAME][RECIPE_COLLECTION]
 user_coll = conn[DBS_NAME][USER_COLLECTION]
+level_coll = conn[DBS_NAME][LEVEL_COLLECTION]
+course_coll = conn[DBS_NAME][COURSE_COLLECTION]
+allergens_coll = conn[DBS_NAME][ALLERGENS_COLLECTION]
 
 documents = coll.find()
 
@@ -40,7 +46,10 @@ def contact():
 @app.route("/recipes")
 def recipes():
     recipes = coll.find()
-    return render_template("recipes.html", recipes=recipes)
+    return render_template("recipes.html", recipes=recipes,
+    level = level_coll.find(),
+    course = course_coll.find(),
+    allergen = allergens_coll.find())
     
 @app.route("/instructions/<item_id>")
 def instructions(item_id):
@@ -49,7 +58,10 @@ def instructions(item_id):
 
 @app.route("/add_recipe")
 def add_recipe():
-    return render_template("addrecipe.html")
+    return render_template("addrecipe.html",
+    level = level_coll.find(),
+    course = course_coll.find(),
+    allergen = allergens_coll.find())
 
 @app.route("/profile")
 def profile():

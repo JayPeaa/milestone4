@@ -11,22 +11,22 @@
                 <label class="active" for="recipename">Recipe Name</label>
             </div>
             <div class="input-field col s12 l2 m2">
-                <select>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Easy</option>
-      <option value="2">Moderate</option>
-      <option value="3">Challenging</option>
-    </select>
+                <select id="difficulty" name="skill_level">
+                  <option value="" disabled selected>Choose Difficulty</option>
+                  {% for dif in level %}
+                      <option value="{{dif.level}}">{{dif.level}}</option>
+                  {% endfor %}
+                </select>
                 <label>Difficulty</label>
             </div>
             <div class="input-field col s12 l2 m2">
-                <select>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Starter</option>
-      <option value="2">Main</option>
-      <option value="3">Dessert</option>
-    </select>
-                <label>Course Type</label>
+                <select id="course" name="course_type">
+                  <option value="" disabled selected>Choose Course</option>
+                  {% for type in course %}
+                      <option value="{{type.name}}">{{type.name}}</option>
+                  {% endfor %}
+                </select>
+                <label>Course</label>
             </div>
             <div class="input-field col s12 m12 l12">
                 <input value="" id="description" type="text" class="validate">
@@ -48,19 +48,13 @@
                 <input value="" id="serves" type="text" class="validate">
                 <label class="active" for="serves">Serves</label>
             </div>
-            <div class="input-field col s12 l12 m12">
-                <select multiple>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Eggs</option>
-      <option value="2">Fish</option>
-      <option value="3">Peanuts</option>
-      <option value="3">Soybeans</option>
-      <option value="4">Milk</option>
-      <option value="5">Celery</option>
-      <option value="6">Mustard</option>
-      <option value="7">Sesame</option>
-      <option value="8">Gluten</option>
-          </select>
+            <div class="input-field col s12">
+                <select id="allergen" name="allergens" multiple>
+                  <option value="" disabled selected>Select Allergens</option>
+                  {% for item in allergen %}
+                      <option value="{{item.name}}">{{item.name}}</option>
+                  {% endfor %}
+                </select>
                 <label>Allergens</label>
             </div>
             <div class="input-field col s12 l6 m6">

@@ -9,7 +9,7 @@
                 <span class="card-title">{{ recipes.recipe_name }}</span>
             </div>
             <div class="card-content ">
-                <p class="black-text">This is some introductory text about the recipe Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, quaerat. Voluptatem illo saepe, doloremque maxime..</p>
+                <p class="black-text">{{ recipes.description }}</p>
             </div>
         </div>
     </div>
@@ -20,24 +20,24 @@
 
             <h4> Ingredients </h4>
 
-            <p class="justify"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam alias id cum, rem laboriosam aspernatur. Dolore facere, dolores! Hic quibusdam similique, ipsum laborum. Architecto, amet ducimus eaque earum! Nulla, nisi.</p>
-            <div class="col l4 m4 s4">
-                <p class="center"><i class="medium material-icons orange-text center">access_time</i></br> 30 mins </p>
+            <p class="justify"> {{ recipes.ingredients }}</p>
+            <div class="col s4">
+                <p class="center"><i class="medium material-icons orange-text center">access_time</i></br> {{ recipes.time_required }} mins </p>
             </div>
-            <div class="col l4 m4 s4">
-                <p class="center"><i class="medium material-icons orange-text center">network_check</i></br> Easy </p>
+            <div class="col s4">
+                <p class="center"><i class="medium material-icons orange-text center">network_check</i></br> {{ recipes.skill_level }} </p>
             </div>
-            <div class="col l4 m4 s4">
-                <p class="center"><i class="medium material-icons orange-text center">restaurant</i></br> Serves 4 </p>
+            <div class="col s4">
+                <p class="center"><i class="medium material-icons orange-text center">restaurant</i></br> Serves {{ recipes.serves }} </p>
             </div>
 
             <h4> Directions </h4>
 
-            <p class="justify"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam alias id cum, rem laboriosam aspernatur. Dolore facere, dolores! Hic quibusdam similique, ipsum laborum. Architecto, amet ducimus eaque earum! Nulla, nisi.</p>
+            <p class="justify"> {{ recipes.instructions }}</p>
 
             <h4> Author </h4>
 
-            <p> UserName </p>
+            <p> {{ recipes.user_name }} </p>
             <div class="container center">
                 <a class="btn-floating btn-medium waves-effect waves-light green tooltipped crud-btn" data-tooltip="Edit Recipe"><i class="material-icons">edit</i></a>
                 <a class="btn-floating btn-medium waves-effect waves-light red tooltipped crud-btn" data-tooltip="Delete Recipe"><i class="material-icons">delete</i></a>

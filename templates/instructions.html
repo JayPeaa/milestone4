@@ -39,7 +39,7 @@
 
             <p> {{ recipes.user_name }} </p>
             <div class="container center">
-                <a class="btn-floating btn-medium waves-effect waves-light green tooltipped crud-btn" data-tooltip="Edit Recipe"><i class="material-icons">edit</i></a>
+                <a href="{{url_for('edit_recipe', item_id=item._id)}}" class="btn-floating btn-medium waves-effect waves-light green tooltipped crud-btn" data-tooltip="Edit Recipe"><i class="material-icons">edit</i></a>
                 <a class="btn-floating btn-medium waves-effect waves-light red tooltipped crud-btn" data-tooltip="Delete Recipe"><i class="material-icons">delete</i></a>
             </div>
         </div>

@@ -64,10 +64,28 @@ def add_recipe():
 @app.route("/insert_recipe", methods=['GET', 'POST'])
 def insert_recipe():
     recipes = coll
-    #recipes.insert_one(request.form.to_dict())
-    pprint(request.form.to_dict())
-    return "Form posted to route... check terminal for details"
-    
+    form = {'recipe_name': request.form['recipe_name'],
+    'description': request.form['description'],
+    'allergens': request.form['allergens'],
+    'course_type': request.form['course_type'],
+    'cuisine': request.form['cuisine'],
+    'ingredients': request.form['ingredients'],
+    'instructions': request.form['instructions'],
+    'serves': request.form['serves'],
+    'skill_level': request.form['skill_level'],
+    'time_required': request.form['time_required'],
+    'user_name': request.form['user_name']}
+    recipes.insert_one(form)
+    return redirect("recipes")
+
+@app.route("/edit_recipe/<item_id>")
+def edit_recipe(item_id):
+    recipes_category = coll.find_one({"_id": ObjectId(item_id)})
+    user_category = user_coll.find() 
+    skill_category = level_coll.find() 
+    course_category = course_coll.find() 
+    allergen_category = allergens_coll.find() 
+    return render_template("editrecipe.html", recipes_category=recipes_category, user_category=user_category, skill_category=skill_category, course_category=course_category, allergen_category=allergen_category)
 
 @app.route("/profile")
 def profile():
@@ -78,7 +96,8 @@ def profile():
     
     if 'user_name' in session:  
         user = user_coll.find_one({'user_name': session['user_name']}) #Load the user
-        return render_template("profile.html", user=user) #Send user data to view
+        users_recipes = coll.find({'user_name': session['user_name']}) #Load all recipes associated with user
+        return render_template("profile.html", user=user, users_recipes=users_recipes) #Send user data to view
     
     return render_template("login.html")
     

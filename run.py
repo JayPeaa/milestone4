@@ -78,14 +78,14 @@ def insert_recipe():
     recipes.insert_one(form)
     return redirect("recipes")
 
-@app.route("/edit_recipe/<item_id>")
-def edit_recipe(item_id):
-    recipes_category = coll.find_one({"_id": ObjectId(item_id)})
+@app.route("/edit_recipe/<recipe_id>")
+def edit_recipe(recipe_id):
+    recipes = coll.find_one({"_id": ObjectId(recipe_id)})
     user_category = user_coll.find() 
     skill_category = level_coll.find() 
     course_category = course_coll.find() 
     allergen_category = allergens_coll.find() 
-    return render_template("editrecipe.html", recipes_category=recipes_category, user_category=user_category, skill_category=skill_category, course_category=course_category, allergen_category=allergen_category)
+    return render_template("editrecipe.html", recipes=recipes, user_category=user_category, skill_category=skill_category, course_category=course_category, allergen_category=allergen_category)
 
 @app.route("/profile")
 def profile():

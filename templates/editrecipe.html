@@ -72,17 +72,10 @@
                 </select>
                 <label>Allergens</label>
             </div>
-            <div class="input-field col s12 l6 m6">
-                <div class="file-field input-field ">
-                    <div class="btn">
-                        <span class="custombtn">File</span>
-                        <input type="file">
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" placeholder="Upload an image">
-                    </div>
-                </div>
-            </div>
+            <div class="input-field col s12 m12 l12">
+                <input value="{{recipes.recipe_image}}"class="validate" type="url" id="recipe_image" name="recipe_image">
+                <label class="active" for="recipe_image">Recipe Image URL</label>
+            </div>   
             <div class="input-field col s12 m4 l4">
                 <input value="{{session.user_name}}" id="user_name" name="user_name" type="hidden">
                 <label class="active text-hidden" for="user_name"></label>

@@ -73,7 +73,8 @@ def insert_recipe():
     'serves': request.form['serves'],
     'skill_level': request.form['skill_level'],
     'time_required': request.form['time_required'],
-    'user_name': request.form['user_name']}
+    'user_name': request.form['user_name'],
+    'recipe_image': request.form['recipe_image']}
     recipes.insert_one(form)
     return redirect("recipes")
 
@@ -104,6 +105,11 @@ def update_recipe(recipe_id):
     })
     return redirect(url_for('recipes'))
     
+@app.route('/delete_recipe/<recipe_id>')
+def delete_recipe(recipe_id):
+    coll.remove({'_id': ObjectId(recipe_id)})
+    return redirect(url_for('recipes'))
+
 
 @app.route("/profile")
 def profile():

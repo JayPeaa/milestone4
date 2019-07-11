@@ -9,6 +9,7 @@
     $('.sidenav').sidenav();
     $('.tooltipped').tooltip();
     $('select').formSelect();
+    $('.materialboxed').materialbox();
   });
 
 

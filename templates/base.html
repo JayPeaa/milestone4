@@ -35,7 +35,9 @@
                 <li><a href="{{ url_for('profile') }}" class="btn-floating yellow tooltipped waves-effect waves-dark" data-tooltip="Profile"><i class="material-icons">account_circle</i></a></li>
                 <li><a href="{{ url_for('contact') }}" class="btn-floating green tooltipped waves-effect waves-dark" data-tooltip="Contact"><i class="material-icons">email</i></a></li>
                 <li><a href="{{ url_for('about') }}" class="btn-floating blue tooltipped waves-effect waves-dark" data-tooltip="About"><i class="material-icons">info</i></a></li>
+                {% if 'user_name' in session %}
                 <li><a href="{{ url_for('logout') }}" class="btn-floating red darken-1 tooltipped waves-effect waves-dark" data-tooltip="Log Out"><i class="material-icons">directions_run</i></a></li>
+                {% endif %}
                 <div class="container">
                     <div class="row right">
                         <div class="col">

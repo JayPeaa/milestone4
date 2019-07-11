@@ -5,7 +5,7 @@
     <div class="container col offset-l1 l3 offset-m2 m3 s12">
         <div class="card">
             <div class="card-image">
-                <img src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+                <img src="{{recipes.recipe_image | default('..\static\images\cook_books.jpg') }}">
                 <span class="card-title">{{ recipes.recipe_name }}</span>
             </div>
             <div class="card-content ">
@@ -38,10 +38,12 @@
             <h4> Author </h4>
 
             <p> {{ recipes.user_name }} </p>
+            {% if 'user_name' in session %}
             <div class="container center">
                 <a href="{{url_for('edit_recipe', recipe_id=recipes._id)}}" class="btn-floating btn-medium waves-effect waves-light green tooltipped crud-btn" data-tooltip="Edit Recipe"><i class="material-icons">edit</i></a>
                 <a href="{{url_for('delete_recipe', recipe_id=recipes._id)}}" class="btn-floating btn-medium waves-effect waves-light red tooltipped crud-btn" data-tooltip="Delete Recipe"><i class="material-icons">delete</i></a>
             </div>
+            {% endif %}
         </div>
     </div>
 </div>

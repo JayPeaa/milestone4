@@ -2,11 +2,12 @@
 
 <h3 class="white-text center container"><br>Browse <span class="highlighting">Recipes</span></h3>
 
+{% if 'user_name' in session %}
 <div class="container center">
     <a href="{{ url_for('add_recipe') }}" class="btn-floating blue darken-1 tooltipped waves-effect waves-dark crud-btn" data-tooltip="Add Recipe"><i class="material-icons">add</i></a></li>
     <a href="{{ url_for('profile') }}" class="btn-floating green tooltipped waves-effect waves-dark crud-btn" data-tooltip="My Recipes"><i class="material-icons">local_library</i></a>
 </div>
-
+{% endif %}
 <form>
     <div class="input-field container row">
         <div class="input-field col s12 l2 m2">
@@ -54,8 +55,8 @@
     {% for item in recipes %}
     <div class="col l3 m4 s12">
         <div class="card">
-            <div class="card-image">
-                <img src="{{item.recipe_image}}">
+            <div class="card-image materialboxed src="{{item.recipe_image}}">
+                <img src="{{item.recipe_image | default('static\images\cook_books.jpg') }}">
                 <span class="card-title">{{ item.recipe_name }}</span>
             </div>
             <div class="card-content ">

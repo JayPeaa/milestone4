@@ -3,8 +3,6 @@ import pymongo, os, json, bcrypt
 from flask import Flask, render_template, url_for, request, session, redirect, flash
 from bson.objectid import ObjectId
 
-
-
 MONGODB_URI = os.getenv("MONGO_URI")
 DBS_NAME = "cook-e"
 RECIPE_COLLECTION = "recipes"
@@ -31,14 +29,15 @@ allergens_coll = conn[DBS_NAME][ALLERGENS_COLLECTION]
 
 app = Flask(__name__)
 
-@app.route("/")
-def index():
-    return render_template("index.html")
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
-    
+
+@app.route("/")    
 @app.route("/recipes")
 def recipes():
     recipes = coll.find()
@@ -81,11 +80,30 @@ def insert_recipe():
 @app.route("/edit_recipe/<recipe_id>")
 def edit_recipe(recipe_id):
     recipes = coll.find_one({"_id": ObjectId(recipe_id)})
-    user_category = user_coll.find() 
-    skill_category = level_coll.find() 
-    course_category = course_coll.find() 
-    allergen_category = allergens_coll.find() 
-    return render_template("editrecipe.html", recipes=recipes, user_category=user_category, skill_category=skill_category, course_category=course_category, allergen_category=allergen_category)
+    user = user_coll.find() 
+    level = level_coll.find() 
+    course = course_coll.find() 
+    allergen = allergens_coll.find() 
+    return render_template("editrecipe.html", recipes=recipes, user=user, level=level, course=course, allergen=allergen)
+    
+@app.route("/update_recipe/<recipe_id>", methods=["POST"])
+def update_recipe(recipe_id):
+    recipes = coll
+    recipes.update({'_id': ObjectId(recipe_id)},
+    {
+        "recipe_name":request.form.get("recipe_name"),
+        "cuisine":request.form.get("cuisine"),
+        "description":request.form.get("description"),
+        "course_type":request.form.get("course_type"),
+        "time_required":request.form.get("time_required"),
+        "skill_level":request.form.get("skill_level"),
+        "ingredients":request.form.get("ingredients"),
+        "allergens":request.form.get("allergens"),
+        "serves":request.form.get("serves"),
+        "instructions":request.form.get("instructions")
+    })
+    return redirect(url_for('recipes'))
+    
 
 @app.route("/profile")
 def profile():

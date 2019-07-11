@@ -28,19 +28,19 @@
 
         <div class="nav-wrapper grey darken-3">
 
-            <a href="{{ url_for('index') }}" class="brand-logo ">Cook<span class="highlighting">-e</span></a>
+            <a href="{{ url_for('recipes') }}" class="brand-logo ">Cook<span class="highlighting">-e</span></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('index') }}" class="btn-floating red tooltipped waves-effect waves-dark" data-tooltip="Home"><i class="material-icons">home</i></a></li>
-                <li><a href="{{ url_for('recipes') }}" class="btn-floating yellow darken-1 tooltipped waves-effect waves-dark" data-tooltip="View Recipes"><i class="material-icons">local_dining</i></a></li>
-                <li><a href="{{ url_for('profile') }}" class="btn-floating green tooltipped waves-effect waves-dark" data-tooltip="Profile"><i class="material-icons">account_circle</i></a></li>
-                <li><a href="{{ url_for('contact') }}" class="btn-floating blue tooltipped waves-effect waves-dark" data-tooltip="Contact"><i class="material-icons">email</i></a></li>
+                <li><a href="{{ url_for('recipes') }}" class="btn-floating red darken-1 tooltipped waves-effect waves-dark" data-tooltip="Home - Recipes"><i class="material-icons">home</i></a></li>
+                <li><a href="{{ url_for('profile') }}" class="btn-floating yellow tooltipped waves-effect waves-dark" data-tooltip="Profile"><i class="material-icons">account_circle</i></a></li>
+                <li><a href="{{ url_for('contact') }}" class="btn-floating green tooltipped waves-effect waves-dark" data-tooltip="Contact"><i class="material-icons">email</i></a></li>
+                <li><a href="{{ url_for('about') }}" class="btn-floating blue tooltipped waves-effect waves-dark" data-tooltip="About"><i class="material-icons">info</i></a></li>
                 <li><a href="{{ url_for('logout') }}" class="btn-floating red darken-1 tooltipped waves-effect waves-dark" data-tooltip="Log Out"><i class="material-icons">directions_run</i></a></li>
                 <div class="container">
                     <div class="row right">
                         <div class="col">
                             {% if 'user_name' in session %}
-                            <h6 class="white-text ">Welcome: <span class="highlighting">{{ session['user_name'] }}</span></h6>
+                            <h6 class="white-text center s12 ">Welcome: <span class="highlighting">{{ session['user_name'] }}</span></h6>
                             {% else %} {% endif %}
                         </div>
                     </div>
@@ -53,10 +53,13 @@
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="{{ url_for('index') }}">Home</a></li>
-        <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
+        
+        <li><a href="{{ url_for('recipes') }}">Home - Recipes</a></li>
         <li><a href="{{ url_for('profile') }}">Profile</a></li>
         <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        
     </ul>
 
 

@@ -6,11 +6,11 @@
     <div class="container">
         <form action="{{url_for('update_recipe', recipe_id=recipes._id)}}" method="POST">
             <div class="input-field col s12 l8 m8">
-                <input value="{{recipes.recipe_name}}" id="recipe_name" name="recipe_name" type="text" class="validate">
+                <input value="{{recipes.recipe_name}}" id="recipe_name" name="recipe_name" type="text" class="validate" required>
                 <label class="active" for="recipename">Recipe Name</label>
             </div>
             <div class="input-field col s12 l2 m2">
-                <select id="skill_level" name="skill_level">
+                <select id="skill_level" name="skill_level" required>
                   <option value="" disabled selected>Choose Difficulty</option>
                   {% for dif in level %}
                       {% if dif.level == recipes.skill_level %}
@@ -23,7 +23,7 @@
                 <label>Difficulty</label>
             </div>
             <div class="input-field col s12 l2 m2">
-                <select id="course_type" name="course_type">
+                <select id="course_type" name="course_type" required>
                   <option value="" disabled selected>Choose Course</option>
                   {% for type in course %}
                       {% if type.course == recipes.course %}
@@ -36,31 +36,31 @@
                 <label>Course</label>
             </div>
             <div class="input-field col s12 m12 l12">
-                <input value="{{recipes.description}}" id="description" name="description" type="text" class="validate">
+                <input value="{{recipes.description}}" id="description" name="description" type="text" class="validate" required>
                 <label class="active" for="description">Description</label>
             </div>
             <div class="input-field col s12 m12 l12">
-                <input value="{{recipes.ingredients}}" id="ingredients" name="ingredients" type="text" class="validate">
+                <input value="{{recipes.ingredients}}" id="ingredients" name="ingredients" type="text" class="validate" required>
                 <label class="active" for="ingredients">Ingredients</label>
             </div>
             <div class="input-field col s12 m12 l12">
-                <input value="{{recipes.instructions}}" id="instructions" name="instructions" type="text" class="validate">
+                <input value="{{recipes.instructions}}" id="instructions" name="instructions" type="text" class="validate" required>
                 <label class="active" for="ingredients">Instructions</label>
             </div>
             <div class="input-field col s12 m4 l4">
-                <input value="{{recipes.cuisine}}" id="cuisine" name="cuisine" type="text" class="validate">
+                <input value="{{recipes.cuisine}}" id="cuisine" name="cuisine" type="text" class="validate" required>
                 <label class="active" for="cuisine">Cuisine</label>
             </div>
             <div class="input-field col s12 m4 l4">
-                <input value="{{recipes.time_required}}" id="time_required" name="time_required" type="number" class="validate">
+                <input value="{{recipes.time_required}}" id="time_required" name="time_required" type="number" class="validate" required>
                 <label class="active" for="time">Time Required (In Minutes)</label>
             </div>
             <div class="input-field col s12 m4 l4">
-                <input value="{{recipes.serves}}" id="serves" name="serves" type="number" class="validate">
+                <input value="{{recipes.serves}}" id="serves" name="serves" type="number" class="validate" required>
                 <label class="active" for="serves">Serves</label>
             </div>
             <div class="input-field col s12">
-                <select id="allergens" name="allergens" multiple>
+                <select id="allergens" name="allergens" multiple required>
                   <option value="" disabled selected>Select Allergens</option>
                   {% for item in allergen %}
                       {% if item.allergen == recipes.allergen %}
@@ -73,15 +73,15 @@
                 <label>Allergens</label>
             </div>
             <div class="input-field col s12 m12 l12">
-                <input value="{{recipes.recipe_image}}"class="validate" type="url" id="recipe_image" name="recipe_image">
+                <input value="{{recipes.recipe_image}}"class="validate" type="url" id="recipe_image" name="recipe_image" required>
                 <label class="active" for="recipe_image">Recipe Image URL</label>
             </div>   
             <div class="input-field col s12 m4 l4">
-                <input value="{{session.user_name}}" id="user_name" name="user_name" type="hidden">
+                <input value="{{session.user_name}}" id="user_name" name="user_name" type="hidden" required>
                 <label class="active text-hidden" for="user_name"></label>
             </div>
             <div class="input-field center col s12">
-                <input class="btn" type="submit" value="Submit Edits" />
+                <input class="btn" type="submit" value="Submit Edits" required />
             </div>
     </div>
     </form>

@@ -6,12 +6,12 @@
     <div class="container">
         <form action="{{url_for('insert_recipe')}}" method="POST">
             <div class="input-field col s12 l8 m8">
-                <input value="" id="recipe_name" name="recipe_name" type="text" class="validate">
+                <input value="" id="recipe_name" name="recipe_name" type="text" class="validate" required>
                 <label class="active" for="recipename">Recipe Name</label>
             </div>
             <div class="input-field col s12 l2 m2">
-                <select id="skill_level" name="skill_level">
-                  <option value="" disabled selected>Choose Difficulty</option>
+                <select id="skill_level" name="skill_level" required>
+                  <option value=""  disabled selected required>Required</option>
                   {% for dif in level %}
                       <option value="{{dif.level}}">{{dif.level}}</option>
                   {% endfor %}
@@ -19,8 +19,8 @@
                 <label>Difficulty</label>
             </div>
             <div class="input-field col s12 l2 m2">
-                <select id="course_type" name="course_type">
-                  <option value="" disabled selected>Choose Course</option>
+                <select id="course_type" name="course_type" required>
+                  <option value="" disabled selected>Required</option>
                   {% for type in course %}
                       <option value="{{type.name}}">{{type.name}}</option>
                   {% endfor %}
@@ -28,32 +28,32 @@
                 <label>Course</label>
             </div>
             <div class="input-field col s12 m12 l12">
-                <input value="" id="description" name="description" type="text" class="validate">
+                <input value="" id="description" name="description" type="text" class="validate" required>
                 <label class="active" for="description">Description</label>
             </div>
             <div class="input-field col s12 m12 l12">
-                <input value="" id="ingredients" name="ingredients" type="text" class="validate">
+                <input value="" id="ingredients" name="ingredients" type="text" class="validate" required>
                 <label class="active" for="ingredients">Ingredients</label>
             </div>
             <div class="input-field col s12 m12 l12">
-                <input value="" id="instructions" name="instructions" type="text" class="validate">
+                <input value="" id="instructions" name="instructions" type="text" class="validate" required>
                 <label class="active" for="ingredients">Instructions</label>
             </div>
             <div class="input-field col s12 m4 l4">
-                <input value="" id="cuisine" name="cuisine" type="text" class="validate">
+                <input value="" id="cuisine" name="cuisine" type="text" class="validate" required>
                 <label class="active" for="cuisine">Cuisine</label>
             </div>
             <div class="input-field col s12 m4 l4">
-                <input value="" id="time_required" name="time_required" type="number" class="validate">
+                <input value="" id="time_required" name="time_required" type="number" class="validate" required>
                 <label class="active" for="time">Time Required (In Minutes)</label>
             </div>
             <div class="input-field col s12 m4 l4">
-                <input value="" id="serves" name="serves" type="number" class="validate">
+                <input value="" id="serves" name="serves" type="number" class="validate" required>
                 <label class="active" for="serves">Serves</label>
             </div>
             <div class="input-field col s12">
-                <select id="allergens" name="allergens" multiple>
-                  <option value="" disabled selected>Select Allergens</option>
+                <select required id="allergens" name="allergens" multiple >
+                  <option value="" disabled selected>Required Field - If there are no Allergens select NO ALLERGENS for the menu</option>
                   {% for item in allergen %}
                       <option value="{{item.name}}">{{item.name}}</option>
                   {% endfor %}
@@ -61,7 +61,7 @@
                 <label>Allergens</label>
             </div>
             <div class="input-field col s12 m12 l12">
-                <input value="https://cdn.pixabay.com/photo/2018/03/13/18/30/food-3223286_960_720.jpg" id="recipe_image" name="recipe_image" type="url" class="validate">
+                <input value="https://cdn.pixabay.com/photo/2018/03/13/18/30/food-3223286_960_720.jpg" id="recipe_image" name="recipe_image" type="url" class="validate" required>
                 <label class="active" for="recipe_image">Recipe Image URL</label>
             </div>
             <div class="input-field col s12 m4 l4">

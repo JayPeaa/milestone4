@@ -10,7 +10,7 @@
 {% endif %}
 <form>
     <div class="input-field container row">
-        <div class="input-field col s12 l2 m2">
+        <div class="input-field col s12 l2">
             <select id="difficulty" name="skill_level">
                   <option value="" disabled selected>Choose Difficulty</option>
                   {% for dif in level %}
@@ -20,7 +20,7 @@
             <label>Difficulty</label>
         </div>
 
-        <div class="input-field col s12 l2 m2">
+        <div class="input-field col s12 l2">
             <select id="course" name="course_type">
                   <option value="" disabled selected>Choose Course</option>
                   {% for type in course %}
@@ -30,7 +30,7 @@
             <label>Course</label>
         </div>
 
-        <div class="input-field col s12 m8">
+        <div class="input-field col s12">
             <select id="allergen" name="allergens" multiple>
                   <option value="" disabled selected>Select Allergens</option>
                   {% for item in allergen %}
@@ -41,7 +41,7 @@
         </div>
 
 
-        <div class="col s12 m12">
+        <div class="col s12">
             <input id="search" type="search">
             <label class="label-icon" for="search"><i class="material-icons">search</i></label>
             <i class="material-icons">close</i>

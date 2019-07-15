@@ -5,11 +5,11 @@
 <div class="row">
     <div class="container">
         <form action="{{url_for('insert_recipe')}}" method="POST">
-            <div class="input-field col s12 l8 m8">
+            <div class="input-field col s12 l8">
                 <input value="" id="recipe_name" name="recipe_name" type="text" class="validate" required>
                 <label class="active" for="recipename">Recipe Name</label>
             </div>
-            <div class="input-field col s12 l2 m2">
+            <div class="input-field col s12 l2">
                 <select id="skill_level" name="skill_level" required>
                   <option value=""  disabled selected required>Required</option>
                   {% for dif in level %}
@@ -18,7 +18,7 @@
                 </select>
                 <label>Difficulty</label>
             </div>
-            <div class="input-field col s12 l2 m2">
+            <div class="input-field col s12 l2">
                 <select id="course_type" name="course_type" required>
                   <option value="" disabled selected>Required</option>
                   {% for type in course %}
@@ -27,44 +27,44 @@
                 </select>
                 <label>Course</label>
             </div>
-            <div class="input-field col s12 m12 l12">
+            <div class="input-field col s12">
                 <input value="" id="description" name="description" type="text" class="validate" required>
                 <label class="active" for="description">Description</label>
             </div>
-            <div class="input-field col s12 m12 l12">
+            <div class="input-field col s12">
                 <input value="" id="ingredients" name="ingredients" type="text" class="validate" required>
                 <label class="active" for="ingredients">Ingredients</label>
             </div>
-            <div class="input-field col s12 m12 l12">
+            <div class="input-field col s12">
                 <input value="" id="instructions" name="instructions" type="text" class="validate" required>
                 <label class="active" for="ingredients">Instructions</label>
             </div>
-            <div class="input-field col s12 m4 l4">
+            <div class="input-field col s12 l4">
                 <input value="" id="cuisine" name="cuisine" type="text" class="validate" required>
                 <label class="active" for="cuisine">Cuisine</label>
             </div>
-            <div class="input-field col s12 m4 l4">
+            <div class="input-field col s12 l4">
                 <input value="" id="time_required" name="time_required" type="number" class="validate" required>
                 <label class="active" for="time">Time Required (In Minutes)</label>
             </div>
-            <div class="input-field col s12 m4 l4">
+            <div class="input-field col s12 l4">
                 <input value="" id="serves" name="serves" type="number" class="validate" required>
                 <label class="active" for="serves">Serves</label>
             </div>
             <div class="input-field col s12">
-                <select required id="allergens" name="allergens" multiple >
-                  <option value="" disabled selected>Required Field - If there are no Allergens select NO ALLERGENS for the menu</option>
+                <select required id="allergens" name="allergens" multiple>
+                  <option value="" disabled selected>Required Field - If there are no Allergens select NO ALLERGENS from the menu</option>
                   {% for item in allergen %}
                       <option value="{{item.name}}">{{item.name}}</option>
                   {% endfor %}
                 </select>
                 <label>Allergens</label>
             </div>
-            <div class="input-field col s12 m12 l12">
+            <div class="input-field col s12">
                 <input value="https://cdn.pixabay.com/photo/2018/03/13/18/30/food-3223286_960_720.jpg" id="recipe_image" name="recipe_image" type="url" class="validate" required>
                 <label class="active" for="recipe_image">Recipe Image URL</label>
             </div>
-            <div class="input-field col s12 m4 l4">
+            <div class="input-field col s12">
                 <input value="{{session.user_name}}" id="user_name" name="user_name" type="hidden">
                 <label class="active" for="user_name"></label>
             </div>
@@ -74,14 +74,5 @@
     </div>
     </form>
 </div>
-</div>
-
-
-
-
-
-
-
-
 
 {% endblock %}

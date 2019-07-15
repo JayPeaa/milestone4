@@ -16,7 +16,7 @@
                   {% for dif in level %}
                       <option value="{{dif.level}}">{{dif.level}}</option>
                   {% endfor %}
-                </select>
+            </select>
             <label>Difficulty</label>
         </div>
 
@@ -41,13 +41,18 @@
         </div>
 
 
-        <div class="col s12 m12 l12">
-            <input id="search" type="search" required>
+        <div class="col s12 m12">
+            <input id="search" type="search">
             <label class="label-icon" for="search"><i class="material-icons">search</i></label>
             <i class="material-icons">close</i>
         </div>
 
+       <div class="submit-btn">
+            <button class="btn-small waves-effect waves-light" type="submit">Submit</button>
+        </div>
+
     </div>
+     
 </form>
 
 
@@ -64,7 +69,7 @@
             </div>
             <div class="card-action">
                 <a href="{{ url_for('instructions', item_id=item._id) }}" />View Recipe</a>
-            <span class="black-text right" id="likes"><span class="figure"></span><i class="material-icons orange-text right" id="like">favorite</i></span>
+                <span class="black-text right" id="likes"><span class="figure"></span><i class="material-icons orange-text right" id="like">favorite</i></span>
             </div>
         </div>
     </div>

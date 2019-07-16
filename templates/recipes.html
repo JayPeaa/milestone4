@@ -6,9 +6,12 @@
 <div class="container center">
     <a href="{{ url_for('add_recipe') }}" class="btn-floating blue darken-1 tooltipped waves-effect waves-dark crud-btn" data-tooltip="Add Recipe"><i class="material-icons">add</i></a></li>
     <a href="{{ url_for('profile') }}" class="btn-floating green tooltipped waves-effect waves-dark crud-btn" data-tooltip="My Recipes"><i class="material-icons">local_library</i></a>
+    <div>
+        <a href="{{ url_for('recipes') }}" class="btn-floating red darken-1 tooltipped waves-effect waves-dark" data-tooltip="Reset Filters"><i class="material-icons">undo</i></a>
+    </div>
 </div>
 {% endif %}
-<form>
+<form action="/filter" method="POST">
     <div class="input-field container row">
         <div class="input-field col s12 l2">
             <select id="difficulty" name="skill_level">
@@ -19,7 +22,6 @@
             </select>
             <label>Difficulty</label>
         </div>
-
         <div class="input-field col s12 l2">
             <select id="course" name="course_type">
                   <option value="" disabled selected>Choose Course</option>
@@ -30,9 +32,9 @@
             <label>Course</label>
         </div>
 
-        <div class="input-field col s12">
+        <div class="input-field col s12 l8">
             <select id="allergen" name="allergens" multiple>
-                  <option value="" disabled selected>Select Allergens</option>
+                  <option value="" disabled selected>Select Allergens To Exclude</option>
                   {% for item in allergen %}
                       <option value="{{item.name}}">{{item.name}}</option>
                   {% endfor %}
@@ -40,19 +42,19 @@
             <label>Allergens</label>
         </div>
 
-
         <div class="col s12">
             <input id="search" type="search">
             <label class="label-icon" for="search"><i class="material-icons">search</i></label>
             <i class="material-icons">close</i>
-        </div>
 
-       <div class="submit-btn">
-            <button class="btn-small waves-effect waves-light" type="submit">Submit</button>
-        </div>
 
+            <div class="submit-btn">
+                <button class="btn-small waves-effect waves-light" type="submit">Submit</button>
+
+            </div>
+        </div>
     </div>
-     
+
 </form>
 
 

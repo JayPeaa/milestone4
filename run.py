@@ -45,6 +45,23 @@ def recipes():
     level = level_coll.find(),
     course = course_coll.find(),
     allergen = allergens_coll.find())
+
+@app.route("/filter", methods=["POST"])
+def filter():
+    filter_parameters = {}
+    if 'skill_level' in request.form:
+        filter_parameters['skill_level'] = request.form.get('skill_level')
+    if 'course_type' in request.form:
+        filter_parameters['course_type'] = request.form.get('course_type')
+    if 'allergens' in request.form:
+        filter_parameters['allergens'] = request.form.getlist('allergens')
+        {'name': {'$nin': filter_parameters}}
+        pprint(filter_parameters)
+    recipes = coll.find(filter_parameters)
+    return render_template("recipes.html", recipes=recipes,
+    level = level_coll.find(),
+    course = course_coll.find(),
+    allergen = allergens_coll.find())
     
 @app.route("/instructions/<item_id>")
 def instructions(item_id):

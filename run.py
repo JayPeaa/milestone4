@@ -48,25 +48,29 @@ def recipes():
 
 @app.route("/filter", methods=["POST"])
 def filter():
-    filter_parameters = {}
-    if 'skill_level' in request.form:
-        filter_parameters['skill_level'] = request.form.get('skill_level')
-    if 'course_type' in request.form:
-        filter_parameters['course_type'] = request.form.get('course_type')
-    if 'allergens' in request.form:
-        filter_parameters['allergens'] = request.form.getlist('allergens')
-        {'name': {'$nin': filter_parameters}}
-        pprint(filter_parameters)
-    recipes = coll.find(filter_parameters)
-    return render_template("recipes.html", recipes=recipes,
-    level = level_coll.find(),
-    course = course_coll.find(),
-    allergen = allergens_coll.find())
+    exclude_allergens = ''
+    recipes = coll
+	# datatype conversion to dictionary object
+    filter_with = request.form.to_dict()
+	
+    try:
+        #captures any allergens on the form to then exclude later on ($nin)
+        exclude_allergens = request.form.getlist('allergens')
+        #allergens are removed from filter_with
+        del(filter_with['allergens'])
+    except:
+        pass
+		
+    my_recipes = list(recipes.find({'$and':[filter_with,{'allergens': {'$nin': exclude_allergens}}]}))
     
+    return render_template("recipes.html", recipes=my_recipes)
+
+
 @app.route("/instructions/<item_id>")
 def instructions(item_id):
     recipes = coll.find_one({"_id": ObjectId(item_id)})
     return render_template("instructions.html", recipes=recipes)
+
 
 @app.route("/add_recipe")
 def add_recipe():

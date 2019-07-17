@@ -52,7 +52,7 @@ def filter():
     recipes = coll
 	# datatype conversion to dictionary object
     filter_with = request.form.to_dict()
-	
+       
     try:
         #captures any allergens on the form to then exclude later on ($nin)
         exclude_allergens = request.form.getlist('allergens')
@@ -65,6 +65,12 @@ def filter():
     
     return render_template("recipes.html", recipes=my_recipes)
 
+@app.route('/search')
+def search():
+    search_word = request.form.get('search')
+    search_results = coll.find()
+    
+    return render_template('recipes.html', search_results=search_results, recipes=recipes, search_word=search_word)
 
 @app.route("/instructions/<item_id>")
 def instructions(item_id):

@@ -66,15 +66,20 @@ def filter():
     
     return render_template("recipes.html", recipes=my_recipes)
 
-@app.route('/search')
+@app.route('/search', methods=["GET", "POST"])
 def search():
     recipes = coll
     index1 = IndexModel([("recipe_name", ASCENDING),
     ("description", ASCENDING)], name="search")
-    search_word = request.form.get('search')
+    search_word = request.form.get("search")
     coll.create_indexes([index1])
     search_results = coll.find({'$text': {'$search': search_word}}) 
-    return render_template('recipes.html', search_results=search_results, recipes=recipes, search_word=search_word)
+    #print(list(search_results))
+    print('Form', request.form)
+    print("SEARCH", list(search_results))
+    return render_template('recipes.html')
+    #return render_template('recipes.html', recipes=search_results, search_word=search_word)
+    
 
 @app.route("/instructions/<item_id>")
 def instructions(item_id):

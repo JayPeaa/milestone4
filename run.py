@@ -1,5 +1,6 @@
 from pprint import pprint
 import pymongo, os, json, bcrypt
+from pymongo import IndexModel, ASCENDING, DESCENDING
 from flask import Flask, render_template, url_for, request, session, redirect, flash
 from bson.objectid import ObjectId
 
@@ -67,9 +68,12 @@ def filter():
 
 @app.route('/search')
 def search():
+    recipes = coll
+    index1 = IndexModel([("recipe_name", ASCENDING),
+    ("description", ASCENDING)], name="search")
     search_word = request.form.get('search')
-    search_results = coll.find()
-    
+    coll.create_indexes([index1])
+    search_results = coll.find({'$text': {'$search': search_word}}) 
     return render_template('recipes.html', search_results=search_results, recipes=recipes, search_word=search_word)
 
 @app.route("/instructions/<item_id>")

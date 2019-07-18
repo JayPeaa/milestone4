@@ -128,7 +128,7 @@ def edit_recipe(recipe_id):
 def update_recipe(recipe_id):
     recipes = coll
     recipes.update({'_id': ObjectId(recipe_id)},
-    {
+    {"$set": {
         "recipe_name":request.form.get("recipe_name"),
         "cuisine":request.form.get("cuisine"),
         "description":request.form.get("description"),
@@ -139,7 +139,8 @@ def update_recipe(recipe_id):
         "allergens":request.form.get("allergens"),
         "serves":request.form.get("serves"),
         "instructions":request.form.get("instructions")
-    })
+    }})
+    flash('Your Changes Have Been Saved')
     return redirect(url_for('recipes'))
     
 @app.route('/delete_recipe/<recipe_id>')

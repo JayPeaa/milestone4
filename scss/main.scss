@@ -4,37 +4,31 @@ $home-image: url(../images/background-image.png);
 $background-opacity: 0.7;
 
 
+/**********GENERAL SITE SETTINGS*********/
+
 *{
     color: white;
 }
 
-
 html {
     background: $primary-color;
-    
 }
-
-
 
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-
 }
 
 main {
     flex: 1 0 auto;
-
 }
-
 
 .bg-img {
     background: $home-image;
     background-attachment: fixed;
     background-size: cover;
 }
-
 
 .highlighting {
     color: $accent-color;
@@ -52,14 +46,21 @@ p{
     font-size: 1.2em;
 }
 
-/*****ABOUT PAGE****/
+.logged-in{
+    margin-top: 5em;
+}
+
+.custombtn{
+    color: white;
+}
+
+/*****ABOUT PAGE*****/
 
 img{
-   border-radius: 15px;
    margin-top: 1em;
 }
 
-/***CONTACT US***/
+/*****CONTACT US*****/
 
 .pop-text{
     background-color: rgba(0,0,0,0.5);
@@ -77,9 +78,7 @@ img{
    
 }
 
-.custombtn{
-    color: white;
-}
+/*****RECIPES AND INSTRUCTIONS *****/
 
 .card .card-image img {
     display: block;
@@ -102,20 +101,6 @@ img{
     margin:1.5em;
 }
 
-
-/****FLASH MESSAGE****/
-
-.flashstyling {
-    text-align: center;
-    width: 50%;
-    color: limegreen;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/*****HOME PAGE / RECIPES*****/
-
 span{
     color: #26a69a;
 }
@@ -131,3 +116,16 @@ span{
 .submit-btn{
     text-align: center;
 }
+
+
+/****FLASH MESSAGE****/
+
+.flashstyling {
+    text-align: center;
+    width: 50%;
+    color: limegreen;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+

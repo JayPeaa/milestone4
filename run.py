@@ -113,6 +113,7 @@ def insert_recipe():
     'user_name': request.form['user_name'],
     'recipe_image': request.form['recipe_image']}
     recipes.insert_one(form)
+    flash('Your New Recipe Has Been Added Below')
     return redirect("recipes")
 
 @app.route("/edit_recipe/<recipe_id>")
@@ -146,7 +147,15 @@ def update_recipe(recipe_id):
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
     coll.remove({'_id': ObjectId(recipe_id)})
+    flash('Recipe Deleted')
     return redirect(url_for('recipes'))
+
+@app.route('/likes/<item_id>')
+def likes(item_id):
+    coll.find_one_and_update(
+        {'_id': ObjectId(item_id)},
+        {'$inc': {'likes': 1}})
+    return redirect(url_for('instructions', item_id=item_id))
 
 
 @app.route("/profile")

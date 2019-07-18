@@ -1,3 +1,4 @@
+/**********GENERAL SITE SETTINGS*********/
 * {
   color: white; }
 
@@ -29,12 +30,17 @@ main {
 p {
   font-size: 1.2em; }
 
-/*****ABOUT PAGE****/
+.logged-in {
+  margin-top: 5em; }
+
+.custombtn {
+  color: white; }
+
+/*****ABOUT PAGE*****/
 img {
-  border-radius: 15px;
   margin-top: 1em; }
 
-/***CONTACT US***/
+/*****CONTACT US*****/
 .pop-text {
   background-color: rgba(0, 0, 0, 0.5);
   border: solid;
@@ -46,9 +52,7 @@ img {
   margin: 0.5em;
   padding-bottom: 1em; }
 
-.custombtn {
-  color: white; }
-
+/*****RECIPES AND INSTRUCTIONS *****/
 .card .card-image img {
   display: block;
   border-radius: 2px 2px 0 0;
@@ -67,16 +71,6 @@ img {
   min-height: 275px;
   margin: 1.5em; }
 
-/****FLASH MESSAGE****/
-.flashstyling {
-  text-align: center;
-  width: 50%;
-  color: limegreen;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto; }
-
-/*****HOME PAGE / RECIPES*****/
 span {
   color: #26a69a; }
 
@@ -88,3 +82,12 @@ span {
 
 .submit-btn {
   text-align: center; }
+
+/****FLASH MESSAGE****/
+.flashstyling {
+  text-align: center;
+  width: 50%;
+  color: limegreen;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto; }

@@ -10,9 +10,5 @@ $(document).ready(function() {
  $('.tooltipped').tooltip();
  $('select').formSelect();
 
- var clicks = 0;
- $("#like").click(function() {
-  clicks++;
-  $('.figure').html(clicks);
- });
+ 
 });

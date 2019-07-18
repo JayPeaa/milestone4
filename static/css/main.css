@@ -38,7 +38,6 @@ img {
 .pop-text {
   background-color: rgba(0, 0, 0, 0.5);
   border: solid;
-  border-radius: 15px;
   margin-top: 1.5em;
   margin-bottom: 2em; }
 
@@ -59,7 +58,14 @@ img {
   top: 0;
   bottom: 0;
   width: 100%;
-  max-height: 200px; }
+  height: 200px; }
+
+.card-content {
+  height: 130px; }
+
+.instruction-card-content {
+  height: 250px;
+  margin: 1.5em; }
 
 /****FLASH MESSAGE****/
 .flashstyling {
@@ -75,7 +81,7 @@ span {
   color: #26a69a; }
 
 .card-title {
-  text-transform: capitalize; }
+  text-transform: uppercase; }
 
 .crud-btn {
   margin: 1em; }

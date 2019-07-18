@@ -4,11 +4,11 @@
 <div class="row">
     <div class="container col offset-l1 l3 offset-m2 m8 s12">
         <div class="card">
-            <div class="card-image">
+            <div class="card-image hoverable">
                 <img src="{{recipes.recipe_image | default('..\static\images\cook_books.jpg') }}">
-                <span class="card-title">{{ recipes.recipe_name }}</span>
             </div>
-            <div class="card-content ">
+            <div class="instruction-card-content">
+                <span class="black-text card-title">{{ recipes.recipe_name }}</span>
                 <p class="black-text">{{ recipes.description }}</p>
             </div>
             <div class="card-action">

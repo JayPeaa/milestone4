@@ -1,16 +1,22 @@
 {% extends 'base.html' %} {% block content %}
 
-<h3 class="white-text center container"><br>Browse <span class="highlighting">Recipes</span></h3>
+<h3 class="white-text center container"><br>Browse <span class="highlighting">Recipes<br><br></span></h3>
 
 {% if 'user_name' in session %}
 <div class="container center">
-    <a href="{{ url_for('add_recipe') }}" class="btn-floating blue darken-1 tooltipped waves-effect waves-dark crud-btn" data-tooltip="Add Recipe"><i class="material-icons">add</i></a></li>
-    <a href="{{ url_for('profile') }}" class="btn-floating green tooltipped waves-effect waves-dark crud-btn" data-tooltip="My Recipes"><i class="material-icons">local_library</i></a>
-    <div>
-        <a href="{{ url_for('recipes') }}" class="btn-floating red darken-1 tooltipped waves-effect waves-dark" data-tooltip="Reset Filters"><i class="material-icons">undo</i></a>
+        <a href="{{ url_for('profile') }}" class="btn-floating green tooltipped waves-effect waves-dark crud-btn" data-tooltip="My Recipes"><i class="material-icons">local_library</i></a>
+
+        <a href="{{ url_for('recipes') }}" class="btn-floating red darken-1 tooltipped waves-effect waves-dark center" data-tooltip="Reset Filters"><i class="material-icons">undo</i></a>
     </div>
-</div>
 {% endif %}
+
+{% if 'user_name' not in session %}
+<div class="container center">
+        
+        <a href="{{ url_for('recipes') }}" class="btn-floating red darken-1 tooltipped waves-effect waves-dark center" data-tooltip="Reset Filters"><i class="material-icons">undo</i></a>
+    </div>
+{% endif %}
+
 <div class="container">
     <div class="row">
         <form action="/filter" method="POST">
@@ -60,18 +66,18 @@
     </div>
 </div>
 
-
 <div class="row">
     {% for item in recipes %}
     <div class="container">
-        <div class="col l3 m6 s12">
+        <div class="col s12 m3">
             <div class="card">
-                <div class="card-image">
+                <div class="card-image hoverable">
                     <img src="{{item.recipe_image | default('..\static\images\cook_books.jpg') }}">
-                    <span class="card-title">{{ item.recipe_name }}</span>
+                    
                 </div>
                 <div class="card-content ">
-                    <p class="black-text">{{ item.description }} </p>
+                    <span class="black-text card-title">{{ item.recipe_name }}</span>
+                    <p class="black-text">{{ recipe_name }} </p>
                 </div>
                 <div class="card-action">
                     <a href="{{ url_for('instructions', item_id=item._id) }}" />View Recipe</a>

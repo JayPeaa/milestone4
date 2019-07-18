@@ -31,13 +31,12 @@
 
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('recipes') }}" class="btn-floating red darken-1 tooltipped waves-effect waves-dark" data-tooltip="Home - Recipes"><i class="material-icons">home</i></a></li>
-                <li><a href="{{ url_for('profile') }}" class="btn-floating yellow tooltipped waves-effect waves-dark" data-tooltip="Profile"><i class="material-icons">account_circle</i></a></li>
+                <li><a href="{{ url_for('profile') }}" class="btn-floating blue tooltipped waves-effect waves-dark" data-tooltip="Profile"><i class="material-icons">account_circle</i></a></li>
                 <li><a href="{{ url_for('contact') }}" class="btn-floating green tooltipped waves-effect waves-dark" data-tooltip="Contact"><i class="material-icons">email</i></a></li>
-                <li><a href="{{ url_for('about') }}" class="btn-floating blue tooltipped waves-effect waves-dark" data-tooltip="About"><i class="material-icons">info</i></a></li>
+                <li><a href="{{ url_for('about') }}" class="btn-floating yellow tooltipped waves-effect waves-dark" data-tooltip="About"><i class="material-icons">info</i></a></li>
                 {% if 'user_name' in session %}
-                <li><a href="{{ url_for('logout') }}" class="btn-floating red darken-1 tooltipped waves-effect waves-dark" data-tooltip="Log Out"><i class="material-icons">directions_run</i></a></li>
-                {% endif %} 
-                {% if 'user_name' in session %}
+                <li><a href="{{ url_for('add_recipe') }}" class="btn-floating red darken-1 tooltipped waves-effect waves-dark" data-tooltip="Add Recipe"><i class="material-icons">add</i></a></li>
+                <li><a href="{{ url_for('logout') }}" class="btn-floating blue darken-1 tooltipped waves-effect waves-dark" data-tooltip="Log Out"><i class="material-icons">directions_run</i></a></li>
                 <h6 class="white-text center s12 ">Welcome <span class="highlighting">{{ session['user_name'] }}    </span></h6>
                 {% else %} {% endif %}
             </ul>

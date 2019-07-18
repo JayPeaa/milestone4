@@ -64,21 +64,22 @@ def filter():
 		
     my_recipes = list(recipes.find({'$and':[filter_with,{'allergens': {'$nin': exclude_allergens}}]}))
     
-    return render_template("recipes.html", recipes=my_recipes)
+    return render_template("recipes.html", recipes=my_recipes,
+    level = level_coll.find(),
+    course = course_coll.find(),
+    allergen = allergens_coll.find())
+
+
 
 @app.route('/search', methods=["GET", "POST"])
 def search():
     recipes = coll
-    index1 = IndexModel([("recipe_name", ASCENDING),
-    ("description", ASCENDING)], name="search")
-    search_word = request.form.get("search")
-    coll.create_indexes([index1])
+    search_word = request.form.get('search')
     search_results = coll.find({'$text': {'$search': search_word}}) 
-    #print(list(search_results))
-    print('Form', request.form)
-    print("SEARCH", list(search_results))
-    return render_template('recipes.html')
-    #return render_template('recipes.html', recipes=search_results, search_word=search_word)
+    return render_template('recipes.html', recipes=search_results, search_word=search_word,
+    level = level_coll.find(),
+    course = course_coll.find(),
+    allergen = allergens_coll.find())
     
 
 @app.route("/instructions/<item_id>")

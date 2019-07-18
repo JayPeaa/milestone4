@@ -2,7 +2,7 @@
 
 <h3 class="white-text center container"><br>Let's<span class="highlighting"> Go!</br></br></span></h3>
 <div class="row">
-    <div class="container col offset-l1 l3 offset-m2 m8 s12">
+    <div class="container col s12 offset-m2 m3 ">
         <div class="card">
             <div class="card-image hoverable">
                 <img src="{{recipes.recipe_image | default('..\static\images\cook_books.jpg') }}">
@@ -21,40 +21,40 @@
 
             <h4 class="center"> Additional Info </h4>
 
-            <p class="center">Created By: <span class="highlighting"> {{ recipes.user_name }}</span>  <br><br> <span class="red-text strong center">Contains {{ recipes.allergens }} </span></p>
+            <p class="center">Created By: <span class="highlighting"> {{ recipes.user_name }}</span> <br><br> <span class="red-text strong center">Contains {{ recipes.allergens }} </span></p>
         </div>
     </div>
 
 
     <div class="row">
-        <div class="container col s12 offset-l1 l6">
+        <div class="container">
+            <div class="col s12 offset-m1 m6 pop-text">
+                <h4> Ingredients </h4>
 
-            <h4> Ingredients </h4>
+                <p class="justify"> {{ recipes.ingredients }}</p>
+                <div class="col s4">
+                    <p class="center"><i class="medium material-icons orange-text center">access_time</i></br> {{ recipes.time_required }} mins </p>
+                </div>
+                <div class="col s4">
+                    <p class="center"><i class="medium material-icons orange-text center">network_check</i></br> {{ recipes.skill_level }} </p>
+                </div>
+                <div class="col s4">
+                    <p class="center"><i class="medium material-icons orange-text center">restaurant</i></br> Serves {{ recipes.serves }} </p>
+                </div>
 
-            <p class="justify"> {{ recipes.ingredients }}</p>
-            <div class="col s4">
-                <p class="center"><i class="medium material-icons orange-text center">access_time</i></br> {{ recipes.time_required }} mins </p>
+                <h4> Directions </h4>
+
+                <p class="justify"> {{ recipes.instructions }}</p>
+
+
+                {% if 'user_name' in session %}
+                <div class="container center">
+                    <a href="{{url_for('edit_recipe', recipe_id=recipes._id)}}" class="btn-floating btn-medium waves-effect waves-light green tooltipped crud-btn" data-tooltip="Edit Recipe"><i class="material-icons">edit</i></a>
+                    <a href="{{url_for('delete_recipe', recipe_id=recipes._id)}}" class="btn-floating btn-medium waves-effect waves-light red tooltipped crud-btn" data-tooltip="Delete Recipe"><i class="material-icons">delete</i></a>
+                </div>
+                {% endif %}
             </div>
-            <div class="col s4">
-                <p class="center"><i class="medium material-icons orange-text center">network_check</i></br> {{ recipes.skill_level }} </p>
-            </div>
-            <div class="col s4">
-                <p class="center"><i class="medium material-icons orange-text center">restaurant</i></br> Serves {{ recipes.serves }} </p>
-            </div>
-
-            <h4> Directions </h4>
-
-            <p class="justify"> {{ recipes.instructions }}</p>
-
-
-            {% if 'user_name' in session %}
-            <div class="container center">
-                <a href="{{url_for('edit_recipe', recipe_id=recipes._id)}}" class="btn-floating btn-medium waves-effect waves-light green tooltipped crud-btn" data-tooltip="Edit Recipe"><i class="material-icons">edit</i></a>
-                <a href="{{url_for('delete_recipe', recipe_id=recipes._id)}}" class="btn-floating btn-medium waves-effect waves-light red tooltipped crud-btn" data-tooltip="Delete Recipe"><i class="material-icons">delete</i></a>
-            </div>
-            {% endif %}
         </div>
     </div>
 </div>
-
 {% endblock %}

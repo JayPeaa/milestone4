@@ -50,6 +50,11 @@ p{
     margin-top: 3em;
 }
 
+p.logged-in.white-text.center {
+    width: auto;
+    height: 2em;
+}
+
 .custombtn{
     color: white;
 }
@@ -117,6 +122,20 @@ span{
     text-align: center;
 }
 
+p.black-text.like-counter {
+    margin: 0;
+    position: absolute;
+    top: 15px;
+    right: 83px;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+a#likes {
+    position: absolute;
+    top: 14px;
+    right: 30px;
+}
 
 /****FLASH MESSAGE****/
 

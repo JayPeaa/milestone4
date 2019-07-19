@@ -1,9 +1,9 @@
 {% extends 'base.html' %} {% block content %}
 
-<h3 class="white-text center">Let's<span class="highlighting"> Go!</br></span></h3>
+<h3 class="white-text center">Let's<span class="highlighting"> Go!<br></span></h3>
 
 <div class="row">
-    <div class="col offset-s1 s10 offset-l1 l4">
+    <div class="col offset-s1 s10 offset-l1 l3">
         <div class="card">
             <div class="card-image hoverable">
                 <img src="{{recipes.recipe_image | default('..\static\images\cook_books.jpg') }}" alt="image of cookbooks">
@@ -13,7 +13,9 @@
                 <p class="black-text">{{ recipes.description }}</p>
             </div>
             <div class="card-action">
-                <a id="likes" href="{{ url_for('likes', item_id=recipes._id) }}" class="btn-floating orange tooltipped waves-effect waves-dark right" data-tooltip="Like"><i class="material-icons">favorite</i></a><span>{{ recipes['likes'] }}<br><br></span>
+                <div class="container">
+                    <a id="likes" href="{{ url_for('likes', item_id=recipes._id) }}" class="like-icon btn-floating orange tooltipped waves-effect waves-dark right" data-tooltip="Like"><i class="material-icons">favorite</i></a><p class="black-text like-counter">{{ recipes['likes'] }}</p><br><br>
+                </div>
             </div>
         </div>
         <div class="pop-text">
@@ -22,7 +24,7 @@
         </div>
     </div>
 
-    <div class="col offset-s1 s10 offset-l1 l5 pop-text">
+    <div class="col offset-s1 s10 offset-l1 l6 pop-text">
         <h4> Ingredients </h4>
         <p class="justify"> {{ recipes.ingredients }}</p>
         <div class="col s4">

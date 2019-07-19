@@ -187,6 +187,7 @@ def register():
             hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
             users.insert({'user_name' : request.form['user_name'], 'password' : hashpass, 'first_name' : request.form['first_name'], 'last_name' : request.form['last_name'], 'email' : request.form['email']})
             session['user_name'] = request.form['user_name']
+            session['logged_in'] = True
             return redirect( url_for("profile"))
         
         flash('That username already existis!', 'flashstyling')    
@@ -203,6 +204,7 @@ def login():
     if login_user:
         if bcrypt.checkpw(request.form['pass'].encode('utf-8'), login_user['password']):
             session['user_name'] = request.form['user_name']
+            session['logged_in'] = True
             return redirect(url_for('recipes'))
     
     flash('Invalid username/password combination', 'flashstyling')

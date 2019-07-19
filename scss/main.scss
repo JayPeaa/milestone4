@@ -79,8 +79,12 @@ img{
 
 .social-links {
     margin: 0.5em;
-    padding-bottom: 1em;
-   
+    transition: all 300ms ease-in-out;
+}
+
+.social-links:hover{
+    color: $accent-color;
+    transform: rotate(360deg);
 }
 
 /*****RECIPES AND INSTRUCTIONS *****/

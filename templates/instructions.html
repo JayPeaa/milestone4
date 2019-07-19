@@ -6,7 +6,7 @@
     <div class="col offset-s1 s10 offset-l1 l3">
         <div class="card">
             <div class="card-image hoverable">
-                <img src="{{recipes.recipe_image | default('..\static\images\cook_books.jpg') }}" alt="image of cookbooks">
+                <img src="{{recipes.recipe_image | default('..\static\images\cook_books.jpg') }}" class="responsive-img" alt="image of cookbooks">
             </div>
             <div class="instruction-card-content">
                 <span class="black-text card-title">{{ recipes.recipe_name }}</span>

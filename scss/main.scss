@@ -59,6 +59,14 @@ p.logged-in.white-text.center {
     color: white;
 }
 
+.custom-animate{
+    transition: all 300ms ease-in-out;
+}
+
+.custom-animate:hover{
+    transform: rotate(360deg);
+}
+
 /*****ABOUT PAGE*****/
 
 img{

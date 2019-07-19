@@ -14,7 +14,7 @@
             </div>
             <div class="card-action">
                 <div class="container">
-                    <a id="likes" href="{{ url_for('likes', item_id=recipes._id) }}" class="like-icon btn-floating orange tooltipped waves-effect waves-dark right" data-tooltip="Like"><i class="material-icons">favorite</i></a><p class="black-text like-counter">{{ recipes['likes'] }}</p><br><br>
+                    <a id="likes" href="{{ url_for('likes', item_id=recipes._id) }}" class="like-icon btn-floating orange tooltipped waves-effect waves-dark right custom-animate" data-tooltip="Like"><i class="material-icons">favorite</i></a><p class="black-text like-counter">{{ recipes['likes'] }}</p><br><br>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
         <h4> Ingredients </h4>
         <p class="justify"> {{ recipes.ingredients }}</p>
         <div class="col s4">
-            <p class="center"><i class="medium material-icons orange-text center">access_time</i></br> {{ recipes.time_required }} mins </p>
+            <p class="center"><i class="medium material-icons orange-text center custom-animate">access_time</i></br> {{ recipes.time_required }} mins </p>
         </div>
         <div class="col s4">
             <p class="center"><i class="medium material-icons orange-text center">network_check</i></br> {{ recipes.skill_level }} </p>

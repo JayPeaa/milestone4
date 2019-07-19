@@ -1,27 +1,23 @@
 {% extends 'base.html' %} {% block content %}
 
-<h3 class="white-text center container"><br>Browse <span class="highlighting">Recipes<br><br></span></h3>
+<h3 class="white-text center container">Browse <span class="highlighting">Recipes<br></span></h3>
 
 {% if 'user_name' in session %}
 <div class="container center">
-        <a href="{{ url_for('profile') }}" class="btn-floating green tooltipped waves-effect waves-dark crud-btn" data-tooltip="My Recipes"><i class="material-icons">local_library</i></a>
-
-        <a href="{{ url_for('recipes') }}" class="btn-floating red darken-1 tooltipped waves-effect waves-dark center" data-tooltip="Reset Filters"><i class="material-icons">undo</i></a>
-    </div>
-{% endif %}
-
-{% if 'user_name' not in session %}
+    <a href="{{ url_for('profile') }}" class="btn-floating green tooltipped waves-effect waves-dark crud-btn" data-tooltip="My Recipes"><i class="material-icons">local_library</i></a>
+    <a href="{{ url_for('recipes') }}" class="btn-floating red darken-1 tooltipped waves-effect waves-dark center" data-tooltip="Reset Filters"><i class="material-icons">undo</i></a>
+</div>
+{% endif %} {% if 'user_name' not in session %}
 <div class="container center">
-        
-        <a href="{{ url_for('recipes') }}" class="btn-floating red darken-1 tooltipped waves-effect waves-dark center" data-tooltip="Reset Filters"><i class="material-icons">undo</i></a>
-    </div>
+    <a href="{{ url_for('recipes') }}" class="btn-floating red darken-1 tooltipped waves-effect waves-dark center" data-tooltip="Reset Filters"><i class="material-icons">undo</i></a>
+</div>
 {% endif %}
 
 <div class="container">
     <div class="row">
         <form action="/filter" method="POST">
             <div class="input-field">
-                <div class="input-field col s12 m2">
+                <div class="input-field col s11 m2">
                     <select id="difficulty" name="skill_level">
                   <option value="" disabled selected>Choose Difficulty</option>
                   {% for dif in level %}
@@ -30,66 +26,58 @@
             </select>
                     <label>Difficulty</label>
                 </div>
-                <div class="input-field col s12 m2">
-                    <select id="course" name="course_type">
+            </div>
+            <div class="input-field col s11 m2">
+                <select id="course" name="course_type">
                   <option value="" disabled selected>Choose Course</option>
                   {% for type in course %}
                       <option value="{{type.name}}">{{type.name}}</option>
                   {% endfor %}
                 </select>
-                    <label>Course</label>
-                </div>
+                <label>Course</label>
+            </div>
 
-                <div class="input-field col s12 m8">
-                    <select id="allergen" name="allergens" multiple>
+            <div class="input-field col s11 m8">
+                <select id="allergen" name="allergens" multiple>
                   <option value="" disabled selected>Select Allergens To Exclude</option>
                   {% for item in allergen %}
                       <option value="{{item.name}}">{{item.name}}</option>
                   {% endfor %}
                 </select>
-                    <label>Allergens</label>
-
-
-                    <button class="submit-btn btn-small waves-effect waves-light right" type="submit">Submit</button>
-                </div>
+                <label>Allergens</label>
+                <button class="submit-btn btn-small waves-effect waves-light right" type="submit">Submit</button>
+            </div>
         </form>
-        </div>
-        <div class="row">
-            <form method="POST" action="search">
-                <div class="col s12 m12">
-                    <input id="search" type="search" name="search">
-                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                    <button class="submit-btn btn-small waves-effect waves-light right" type="submit">Submit</button>
-                </div>
-            </form>
-        </div>
     </div>
-</div>
-
-<div class="row">
-    {% for item in recipes %}
-    <div class="container">
-        <div class="col s12 m3">
-            <div class="card">
-                <div class="card-image hoverable">
-                    <img src="{{item.recipe_image | default('..\static\images\cook_books.jpg') }}">
-                    
-                </div>
-                <div class="card-content ">
-                    <span class="black-text card-title">{{ item.recipe_name }}</span>
-                    <p class="black-text">{{ recipe_name }} </p>
-                </div>
-                <div class="card-action">
-                    <a href="{{ url_for('instructions', item_id=item._id) }}" />View Recipe</a>
-                    <span class="black-text right" id="likes"><span>{{ item.likes }}</span><i class="material-icons orange-text right" id="like">favorite</i></span>
+    <div class="row">
+        <form method="POST" action="search">
+            <div class="col s11 m12">
+                <input id="search" type="search" name="search">
+                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                <button class="submit-btn btn-small waves-effect waves-light right" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        {% for item in recipes %}
+        
+            <div class="col s11 m3">
+                <div class="card">
+                    <div class="card-image hoverable">
+                        <img src="{{item.recipe_image | default('..\static\images\cook_books.jpg') }}" alt="image of recipe">
+                    </div>
+                    <div class="card-content ">
+                        <span class="black-text card-title">{{ item.recipe_name }}</span>
+                        <p class="black-text">{{ recipe_name }} </p>
+                    </div>
+                    <div class="card-action">
+                        <a href="{{ url_for('instructions', item_id=item._id) }}" />View Recipe</a>
+                        <span class="black-text right" id="likes"><span>{{ item.likes }}</span><i class="material-icons orange-text right" id="like">favorite</i></span>
+                    </div>
                 </div>
             </div>
-        </div>
+        
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
-
-
-
-
 {% endblock %}

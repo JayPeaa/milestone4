@@ -1,12 +1,12 @@
 {% extends 'base.html' %} {% block content %}
 
-<h3 class="white-text center"><br>Let's<span class="highlighting"> Go!</br></br></span></h3>
+<h3 class="white-text center">Let's<span class="highlighting"> Go!</br></span></h3>
 
 <div class="row">
-    <div class="col s12 offset-m1 m3">
+    <div class="col offset-s1 s10 offset-l1 l4">
         <div class="card">
             <div class="card-image hoverable">
-                <img src="{{recipes.recipe_image | default('..\static\images\cook_books.jpg') }}">
+                <img src="{{recipes.recipe_image | default('..\static\images\cook_books.jpg') }}" alt="image of cookbooks">
             </div>
             <div class="instruction-card-content">
                 <span class="black-text card-title">{{ recipes.recipe_name }}</span>
@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <div class="col s12 offset-m1 m6 pop-text">
+    <div class="col offset-s1 s10 offset-l1 l5 pop-text">
         <h4> Ingredients </h4>
         <p class="justify"> {{ recipes.ingredients }}</p>
         <div class="col s4">

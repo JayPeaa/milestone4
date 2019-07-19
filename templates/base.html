@@ -19,44 +19,43 @@
 
     <title>Welcome to Cook-e </title>
 </head>
-<header>
 
-</header>
-<main>
+<body class="bg-img">
 
-    <nav>
-        <div class="nav-wrapper grey darken-3">
-            <a href="{{ url_for('recipes') }}" class="brand-logo ">Cook<span class="highlighting">-e</span></a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <header>
+        <nav>
+            <div class="nav-wrapper grey darken-3">
+                <a href="{{ url_for('recipes') }}" class="brand-logo ">Cook<span class="highlighting">-e</span></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-            <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('recipes') }}" class="btn-floating red darken-1 tooltipped waves-effect waves-dark" data-tooltip="Home - Recipes"><i class="material-icons">home</i></a></li>
-                <li><a href="{{ url_for('profile') }}" class="btn-floating blue tooltipped waves-effect waves-dark" data-tooltip="Profile"><i class="material-icons">account_circle</i></a></li>
-                <li><a href="{{ url_for('contact') }}" class="btn-floating green tooltipped waves-effect waves-dark" data-tooltip="Contact"><i class="material-icons">email</i></a></li>
-                <li><a href="{{ url_for('about') }}" class="btn-floating yellow tooltipped waves-effect waves-dark" data-tooltip="About"><i class="material-icons">info</i></a></li>
-                {% if 'user_name' in session %}
-                <li><a href="{{ url_for('add_recipe') }}" class="btn-floating red darken-1 tooltipped waves-effect waves-dark" data-tooltip="Add Recipe"><i class="material-icons">add</i></a></li>
-                <li><a href="{{ url_for('logout') }}" class="btn-floating blue darken-1 tooltipped waves-effect waves-dark" data-tooltip="Exit"><i class="material-icons">directions_run</i></a></li>
-                <h6 class="logged-in white-text center">Welcome <span class="highlighting">{{ session['user_name'] }}    </span></h6>
-                {% else %} {% endif %}
-            </ul>
-        </div>
-    </nav>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('recipes') }}" class="btn-floating red darken-1 tooltipped waves-effect waves-dark" data-tooltip="Home - Recipes"><i class="material-icons">home</i></a></li>
+                    <li><a href="{{ url_for('profile') }}" class="btn-floating blue tooltipped waves-effect waves-dark" data-tooltip="Profile"><i class="material-icons">account_circle</i></a></li>
+                    <li><a href="{{ url_for('contact') }}" class="btn-floating green tooltipped waves-effect waves-dark" data-tooltip="Contact"><i class="material-icons">email</i></a></li>
+                    <li><a href="{{ url_for('about') }}" class="btn-floating yellow tooltipped waves-effect waves-dark" data-tooltip="About"><i class="material-icons">info</i></a></li>
+                    {% if 'user_name' in session %}
+                    <li><a href="{{ url_for('add_recipe') }}" class="btn-floating red darken-1 tooltipped waves-effect waves-dark" data-tooltip="Add Recipe"><i class="material-icons">add</i></a></li>
+                    <li><a href="{{ url_for('logout') }}" class="btn-floating blue darken-1 tooltipped waves-effect waves-dark" data-tooltip="Exit"><i class="material-icons">directions_run</i></a></li>
+                    <p class="logged-in white-text center">Welcome <span class="highlighting">{{ session['user_name'] }}</span></p>
+                    {% else %} {% endif %}
+                </ul>
+            </div>
+        </nav>
 
-    <ul class="sidenav" id="mobile-demo">
-        {% if 'user_name' in session %}
-        <h6 class="black-text center s12 ">Welcome <span class="highlighting">{{ session['user_name'] }}    </span></h6>
-        {% else %} {% endif %}
-        <li><a href="{{ url_for('recipes') }}">Home - Recipes</a></li>
-        <li><a href="{{ url_for('profile') }}">Profile</a></li>
-        <li><a href="{{ url_for('contact') }}">Contact</a></li>
-        <li><a href="{{ url_for('about') }}">About</a></li>
-        {% if 'user_name' in session %}
-        <li><a href="{{ url_for('logout') }}">Logout</a></li>
-        {% endif %} 
-    </ul>
-
-    <body class="bg-img">
+        <ul class="sidenav" id="mobile-demo">
+            {% if 'user_name' in session %}
+            <p class="black-text center s12 ">Welcome <span class="highlighting">{{ session['user_name'] }}    </span></p>
+            {% else %} {% endif %}
+            <li><a href="{{ url_for('recipes') }}">Home - Recipes</a></li>
+            <li><a href="{{ url_for('profile') }}">Profile</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            {% if 'user_name' in session %}
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% endif %}
+        </ul>
+    </header>
+    <main>
 
         <div class="container">
             {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in messages %}
@@ -68,33 +67,31 @@
 
         {% block content %} {% endblock %}
 
-</main>
-<footer class="container-fluid page-footer grey darken-3">
-    <div class="row">
-        <div class="center col s12 m6">
-            <h5>Cook<span class="highlighting">-e</span></h5>
-            <p>Data Centric Development | Milestone Project 4 | © 2019 John Hay</p>
+    </main>
+    <footer class="container-fluid page-footer grey darken-3">
+        <div class="row">
+            <div class="center col s12 m6">
+                <h5>Cook<span class="highlighting">-e</span></h5>
+                <p>Data Centric Development | Milestone Project 4 | © 2019 John Hay</p>
+            </div>
+            <div class="center col s12 m6">
+                <h5>Our <span class="highlighting">Social</span></h5>
+                <a class="grey-text text-lighten-4" href="https://github.com/JayPeaa" target="_blank"><i class="fab fa-github fa-2x  list-inline social-links"></i></a>
+                <a class="grey-text text-lighten-3" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook fa-2x  list-inline social-links"></i></a>
+                <a class="grey-text text-lighten-3" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-2x  list-inline social-links"></i></a>
+                <a class="grey-text text-lighten-4" href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin fa-2x  list-inline social-links"></i></a>
+                <a class="grey-text text-lighten-3" href="https://www.pinterest.com/" target="_blank"><i class="fab fa-pinterest fa-2x  list-inline social-links"></i></a>
+            </div>
         </div>
-        <div class="center col s12 m6">
-            <h5>Our <span class="highlighting">Social</span></h5>
-            <a class="grey-text text-lighten-4" href="https://github.com/JayPeaa" target="_blank"><i class="fab fa-github fa-2x  list-inline social-links"></i></a>
-            <a class="grey-text text-lighten-3" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook fa-2x  list-inline social-links"></i></a>
-            <a class="grey-text text-lighten-3" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-2x  list-inline social-links"></i></a>
-            <a class="grey-text text-lighten-4" href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin fa-2x  list-inline social-links"></i></a>
-            <a class="grey-text text-lighten-3" href="https://www.pinterest.com/" target="_blank"><i class="fab fa-pinterest fa-2x  list-inline social-links"></i></a>
-        </div>
-    </div>
-</footer>
+    </footer>
 
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Compiled and minified JavaScript for Materalize -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<!-- Custom js -->
-<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
-
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript for Materalize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Custom js -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 </body>
-
 
 </html>

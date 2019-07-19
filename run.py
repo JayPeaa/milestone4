@@ -13,6 +13,9 @@ COURSE_COLLECTION = "course_type"
 ALLERGENS_COLLECTION = "allergens"
 
 def mongo_connect(url):
+    """
+    Function to connect to Mongo Database
+    """
     try:
         conn = pymongo.MongoClient(url)
         print("Mongo is connected!")
@@ -32,15 +35,26 @@ app = Flask(__name__)
 
 @app.route("/about")
 def about():
+    """
+    Route to about page
+    """
     return render_template("about.html")
 
 @app.route("/contact")
 def contact():
+    """
+    Route to contact page
+    """
     return render_template("contact.html")
 
 @app.route("/")    
 @app.route("/recipes")
 def recipes():
+    """
+    Route to recipes page, which is effectively the home page,
+    returns level, course and allergen collections to view and 
+    makes use of the data for the filters
+    """
     recipes = coll.find()
     return render_template("recipes.html", recipes=recipes,
     level = level_coll.find(),
@@ -49,6 +63,11 @@ def recipes():
 
 @app.route("/filter", methods=["POST"])
 def filter():
+    """
+    Filter view to exclude specific allergens from the list assert
+    oppossed to including them.  Also returns other collection info
+    to the view for filters
+    """
     exclude_allergens = ''
     recipes = coll
 	# datatype conversion to dictionary object
@@ -73,6 +92,10 @@ def filter():
 
 @app.route('/search', methods=["GET", "POST"])
 def search():
+    """
+    Search view for search bar. Gets search term from view and
+    utilises a text index on Recipes collection, recipe_name field.
+    """
     recipes = coll
     search_word = request.form.get('search')
     search_results = coll.find({'$text': {'$search': search_word}}) 
@@ -84,12 +107,20 @@ def search():
 
 @app.route("/instructions/<item_id>")
 def instructions(item_id):
+    """
+    This route lists the individual recipes using dynamic referencing
+    with the item_id being unique.
+    """
     recipes = coll.find_one({"_id": ObjectId(item_id)})
     return render_template("instructions.html", recipes=recipes)
 
 
 @app.route("/add_recipe")
 def add_recipe():
+    """
+    Add recipe route returns collections to view for filters and
+    renders the add recipe from.
+    """
     level = level_coll.find()
     course = course_coll.find()
     allergen = allergens_coll.find()
@@ -99,6 +130,10 @@ def add_recipe():
     
 @app.route("/insert_recipe", methods=['GET', 'POST'])
 def insert_recipe():
+    """
+    After the addrecipe.html has been submited this route is called
+    to insert the recipe to the database.
+    """
     recipes = coll
     form = {'recipe_name': request.form['recipe_name'],
     'description': request.form['description'],
@@ -118,6 +153,10 @@ def insert_recipe():
 
 @app.route("/edit_recipe/<recipe_id>")
 def edit_recipe(recipe_id):
+    """
+    This route renders the edit recipe form. Various collections are returned 
+    to the view for the filters/select fields to utilise
+    """
     recipes = coll.find_one({"_id": ObjectId(recipe_id)})
     user = user_coll.find() 
     level = level_coll.find() 
@@ -127,6 +166,12 @@ def edit_recipe(recipe_id):
     
 @app.route("/update_recipe/<recipe_id>", methods=["POST"])
 def update_recipe(recipe_id):
+    """
+    This (dynamic) route is for updating changes to the database and is only available to 
+    authors of the recipes.  i.e. where the session user is equal to the
+    recipe author.  Get is used to retrive the info and $set is used to amend
+    only the fields which have been edit as to not change the database structure.
+    """
     recipes = coll
     recipes.update({'_id': ObjectId(recipe_id)},
     {"$set": {
@@ -146,12 +191,20 @@ def update_recipe(recipe_id):
     
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
+    """
+    Another dynamic route utilised for deleting recipes.  Only
+    available to recipe authors.
+    """
     coll.remove({'_id': ObjectId(recipe_id)})
     flash('Recipe Deleted')
     return redirect(url_for('recipes'))
 
 @app.route('/likes/<item_id>')
 def likes(item_id):
+    """
+    Another dynamic route utilised for liking recipes.  Allows
+    users to see popularity of recipes.
+    """
     coll.find_one_and_update(
         {'_id': ObjectId(item_id)},
         {'$inc': {'likes': 1}})
@@ -177,6 +230,7 @@ def profile():
 def register():
     '''
     Register a new user and check that user name does not already exist
+    Also utilise bcrypt for added security.
     '''
     if request.method == 'POST':
         users = user_coll
@@ -198,6 +252,9 @@ def register():
 
 @app.route("/login", methods=['POST'])
 def login():
+    """
+    User login route
+    """
     users = user_coll
     login_user = users.find_one({'user_name' : request.form['user_name']})
     
@@ -213,6 +270,9 @@ def login():
 
 @app.route("/logout")
 def logout():
+    """
+    User log out route
+    """
     session.clear()
     return render_template("login.html")
     

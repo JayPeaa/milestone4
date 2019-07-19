@@ -1,21 +1,18 @@
 {% extends 'base.html' %} {% block content %}
 
-
 <div class="container pop-text">
     <div class="row">
         <h1 class="white-text center">Account <span class="highlighting">Info</span></h1>
-
-        
         <div class="col s12 m8">
-            <h5>My<span class="highlighting"> Profile</h5></span>
-            <p>Hey <span class="highlighting">{{ user.first_name }}!</span class="highlighting"><br><br>Welcome to your profile page. <br><br> From this page you can access all your personal recipes. <br><br> You have registerd <span class="highlighting">{{ user.email }}</span> as your email
+            <h5>My<span class="highlighting"> Profile</span></h5>
+            <p>Hey <span class="highlighting">{{ user.first_name }}!</span><br><br>Welcome to your profile page. <br><br> From this page you can access all your personal recipes. <br><br> You have registerd <span class="highlighting">{{ user.email }}</span> as your email
                 adress and your user name is <span class="highlighting">{{user.user_name}}</span>. <br> You will be asked for your user name and password each time you log in. <br><br><br>A welcome message will be displayed at the top of the screen indicating when you are logged in.  Any recipes you add will be shown here in your profile section.  Click the red home button to start viewing recipes.
             </p>
         </div>
         <div class="col s12 m4 right">
-            <h5>My<span class="highlighting"> Recipes</h5></span>
+            <h5>My<span class="highlighting"> Recipes</span></h5>
             {% for item in users_recipes %}
-               {{ item.recipe_name}} - {{ item.course_type }} <a href="{{ url_for('instructions', item_id=item._id) }}"/ class="right"><span class="highlighting">View Recipe</a></span></br>
+               {{ item.recipe_name}} - {{ item.course_type }} <a href="{{ url_for('instructions', item_id=item._id) }}" class="right"><span class="highlighting">View Recipe</span></a></br>
            {% endfor %}
         </div>
         <div class="col s12 l4 offset-l4 white-text ">
@@ -25,6 +22,5 @@
         </div>
     </div>
 </div>
-
 
 {% endblock %}

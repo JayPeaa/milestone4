@@ -19,8 +19,8 @@
                 <label>Difficulty</label>
             </div>
             <div class="input-field col s12 l2">
-                <select id="course_type" name="course_type" required>
-                  <option value="" disabled selected>Required</option>
+                <select id="course_type" name="course_type">
+                  <option value="Main" disabled selected required>Required</option>
                   {% for type in course %}
                       <option value="{{type.name}}">{{type.name}}</option>
                   {% endfor %}

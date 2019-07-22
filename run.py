@@ -306,7 +306,7 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.secret_key = 'mysecret'
+    app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)

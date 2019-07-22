@@ -64,10 +64,11 @@
             <div class="col s12 m6 l3">
                 <div class="card">
                     <div class="card-image hoverable">
-                        <img src="{{item.recipe_image | default('..\static\images\cook_books.jpg') }}" class="responsive-img" alt="image of recipe">
+                        <a href="{{ url_for('instructions', item_id=item._id) }}"><img src="{{item.recipe_image | default('..\static\images\cook_books.jpg') }}" class="responsive-img" alt="image of recipe"></a>
                     </div>
                     <div class="card-content ">
                         <span class="black-text card-title">{{ item.recipe_name }}</span>
+                        <span>{{item.course_type}} Course</span> <span>- {{item.skill_level}} </span>
                         <p class="black-text">{{ recipe_name }} </p>
                     </div>
                     <div class="card-action">

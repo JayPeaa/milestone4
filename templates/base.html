@@ -57,6 +57,7 @@
             <li><a href="{{ url_for('contact') }}">Contact</a></li>
             <li><a href="{{ url_for('about') }}">About</a></li>
             {% if 'user_name' in session %}
+            <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
             <li><a href="{{ url_for('logout') }}">Logout</a></li>
             {% endif %}
         </ul>

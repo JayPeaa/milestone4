@@ -6,7 +6,7 @@
     <div class="container">
         <form action="{{url_for('update_recipe', recipe_id=recipes._id)}}" method="POST">
             <div class="input-field col s12 l8 m8">
-                <input value="{{recipes.recipe_name}}" id="recipe_name" name="recipe_name" type="text" class="validate" required>
+                <input value="{{recipes.recipe_name}}" id="recipe_name" name="recipe_name" type="text" class="validate" maxlength="25" required>
                 <label class="white-text active" for="recipename">Recipe Name</label>
             </div>
             <div class="input-field col s12 l2 m2">
@@ -36,27 +36,27 @@
                 <label class="white-text">Course</label>
             </div>
             <div class="input-field col s12 m12 l12">
-                <input value="{{recipes.description}}" id="description" name="description" type="text" class="validate" required>
+                <input value="{{recipes.description}}" id="description" name="description" type="text" class="validate" maxlength="300" required>
                 <label class="white-text active" for="description">Description</label>
             </div>
             <div class="input-field col s12 m12 l12">
-                <input value="{{recipes.ingredients}}" id="ingredients" name="ingredients" type="text" class="validate" required>
+                <input value="{{recipes.ingredients}}" id="ingredients" name="ingredients" type="text" class="validate" maxlength="600" required>
                 <label class="white-text active" for="ingredients">Ingredients</label>
             </div>
             <div class="input-field col s12 m12 l12">
-                <input value="{{recipes.instructions}}" id="instructions" name="instructions" type="text" class="validate" required>
+                <input value="{{recipes.instructions}}" id="instructions" name="instructions" type="text" class="validate" maxlength="1500" required>
                 <label class="white-text active" for="ingredients">Instructions</label>
             </div>
             <div class="input-field col s12 m4 l4">
-                <input value="{{recipes.cuisine}}" id="cuisine" name="cuisine" type="text" class="validate" required>
+                <input value="{{recipes.cuisine}}" id="cuisine" name="cuisine" type="text" class="validate" maxlength="20" required>
                 <label class="white-text active" for="cuisine">Cuisine</label>
             </div>
             <div class="input-field col s12 m4 l4">
-                <input value="{{recipes.time_required}}" id="time_required" name="time_required" type="number" class="validate" required>
+                <input value="{{recipes.time_required}}" id="time_required" name="time_required" type="number" class="validate" min="1" max="480" required>
                 <label class="white-text active" for="time">Time Required (In Minutes)</label>
             </div>
             <div class="input-field col s12 m4 l4">
-                <input value="{{recipes.serves}}" id="serves" name="serves" type="number" class="validate" required>
+                <input value="{{recipes.serves}}" id="serves" name="serves" type="number" class="validate" min="1" max="10" required>
                 <label class="white-text active" for="serves">Serves</label>
             </div>
             <div class="input-field col s12">

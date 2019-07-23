@@ -150,7 +150,7 @@ def insert_recipe():
     recipes = coll
     form = {'recipe_name': request.form['recipe_name'],
             'description': request.form['description'],
-            'allergens': request.form['allergens'],
+            'allergens': request.form.getlist('allergens'),
             'course_type': request.form['course_type'],
             'cuisine': request.form['cuisine'],
             'ingredients': request.form['ingredients'],
@@ -200,7 +200,7 @@ def update_recipe(recipe_id):
                     "time_required": request.form.get("time_required"),
                     "skill_level": request.form.get("skill_level"),
                     "ingredients": request.form.get("ingredients"),
-                    "allergens": request.form.get("allergens"),
+                    "allergens": request.form.getlist("allergens"),
                     "serves": request.form.get("serves"),
                     "instructions": request.form.get("instructions")
                     }})

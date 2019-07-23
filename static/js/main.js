@@ -8,4 +8,5 @@ $(document).ready(function() {
  $('.tooltipped').tooltip();
  /* Materialize Select Elements on forms */
  $('select').formSelect();
+
 });

@@ -7,7 +7,7 @@
         <form action="{{url_for('update_recipe', recipe_id=recipes._id)}}" method="POST">
             <div class="input-field col s12 l8 m8">
                 <input value="{{recipes.recipe_name}}" id="recipe_name" name="recipe_name" type="text" class="validate" required>
-                <label class="active" for="recipename">Recipe Name</label>
+                <label class="white-text active" for="recipename">Recipe Name</label>
             </div>
             <div class="input-field col s12 l2 m2">
                 <select id="skill_level" name="skill_level" required>
@@ -20,7 +20,7 @@
                       {% endif %}
                   {% endfor %}
                 </select>
-                <label>Difficulty</label>
+                <label class="white-text">Difficulty</label>
             </div>
             <div class="input-field col s12 l2 m2">
                 <select id="course_type" name="course_type" required>
@@ -33,52 +33,51 @@
                       {% endif %}
                   {% endfor %}
                 </select>
-                <label>Course</label>
+                <label class="white-text">Course</label>
             </div>
             <div class="input-field col s12 m12 l12">
                 <input value="{{recipes.description}}" id="description" name="description" type="text" class="validate" required>
-                <label class="active" for="description">Description</label>
+                <label class="white-text active" for="description">Description</label>
             </div>
             <div class="input-field col s12 m12 l12">
                 <input value="{{recipes.ingredients}}" id="ingredients" name="ingredients" type="text" class="validate" required>
-                <label class="active" for="ingredients">Ingredients</label>
+                <label class="white-text active" for="ingredients">Ingredients</label>
             </div>
             <div class="input-field col s12 m12 l12">
                 <input value="{{recipes.instructions}}" id="instructions" name="instructions" type="text" class="validate" required>
-                <label class="active" for="ingredients">Instructions</label>
+                <label class="white-text active" for="ingredients">Instructions</label>
             </div>
             <div class="input-field col s12 m4 l4">
                 <input value="{{recipes.cuisine}}" id="cuisine" name="cuisine" type="text" class="validate" required>
-                <label class="active" for="cuisine">Cuisine</label>
+                <label class="white-text active" for="cuisine">Cuisine</label>
             </div>
             <div class="input-field col s12 m4 l4">
                 <input value="{{recipes.time_required}}" id="time_required" name="time_required" type="number" class="validate" required>
-                <label class="active" for="time">Time Required (In Minutes)</label>
+                <label class="white-text active" for="time">Time Required (In Minutes)</label>
             </div>
             <div class="input-field col s12 m4 l4">
                 <input value="{{recipes.serves}}" id="serves" name="serves" type="number" class="validate" required>
-                <label class="active" for="serves">Serves</label>
+                <label class="white-text active" for="serves">Serves</label>
             </div>
             <div class="input-field col s12">
                 <select id="allergens" name="allergens" multiple required>
-                  <option value="" disabled selected>Select Allergens</option>
                   {% for item in allergen %}
-                      {% if item.allergen == recipes.allergen %}
-                      <option value="{{item.name}}" selected >{{item.name}}</option>
-                      {% else %}
-                      <option value="{{item.name}}" >{{item.name}}</option>
-                      {% endif %}
-                   {% endfor %}
+                    {% if item.name in recipes.allergens %}
+                    <option value="{{item.name}}" selected>{{item.name}}</option>
+                    {% else %}
+                <option value="{{item.name}}" >{{item.name}}</option>
+                {% endif %}
+                {% endfor %}
                 </select>
-                <label>Allergens</label>
+                <label class="white-text">Allergens</label>
             </div>
             <div class="input-field col s12 m12 l12">
-                <input value="{{recipes.recipe_image}}"class="validate" type="url" id="recipe_image" name="recipe_image" required>
-                <label class="active" for="recipe_image">Recipe Image URL</label>
-            </div>   
+                <input value="{{recipes.recipe_image}}" class="validate" type="url" id="recipe_image" name="recipe_image" required>
+                <label class="white-text active" for="recipe_image">Recipe Image URL</label>
+            </div>
             <div class="input-field col s12 m4 l4">
                 <input value="{{session.user_name}}" id="user_name" name="user_name" type="hidden" required>
-                <label class="active text-hidden" for="user_name"></label>
+                <label class="white-text active text-hidden" for="user_name"></label>
             </div>
             <div class="input-field center col s12">
                 <input class="btn" type="submit" value="Submit Edits" required />

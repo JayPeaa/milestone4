@@ -17,6 +17,12 @@
     <!-- My Custom CSS -->
     <link rel="stylesheet" href="{{ url_for ('static', filename = 'css/main.css')}}" type="text/css" />
 
+    <!--Favicons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for ('static', filename = 'images/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for ('static', filename = 'images/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for ('static', filename = 'images/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{ url_for ('static', filename = 'images/site.webmanifest')}}">
+
     <title>Welcome to Cook-e </title>
 </head>
 
@@ -91,6 +97,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- Custom js -->
     <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <!-- Fix for PassiveEvent Handlers in Materialize.css to improve performance sets {passive:true} -->
+    <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
 
 </body>
 

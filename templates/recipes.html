@@ -5,7 +5,7 @@
 {% if 'user_name' in session %}
 <div class="container center">
     <a href="{{ url_for('profile') }}" class="btn-floating green tooltipped waves-effect waves-dark crud-btn custom-animate" data-tooltip="My Recipes"><i class="material-icons">local_library</i></a>
-    <a href="{{ url_for('recipes') }}" class="btn-floating red darken-1 tooltipped waves-effect waves-dark center custom-animate" data-tooltip="Reset Filters"><i class="material-icons">undo</i></a>
+    <a href="{{ url_for('recipes') }}" class="btn-floating red darken-1 tooltipped waves-effect waves-dark center custom-animate" data-tooltip="Reset Filters"><i class="material-icons">autorenew</i></a>
 </div>
 {% endif %} {% if 'user_name' not in session %}
 <div class="container center">

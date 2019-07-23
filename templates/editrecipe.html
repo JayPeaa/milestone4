@@ -60,7 +60,7 @@
                 <label class="white-text active" for="serves">Serves</label>
             </div>
             <div class="input-field col s12">
-                <select id="allergens" name="allergens" multiple required>
+                <select id="allergens" name="allergens" multiple>
                   {% for item in allergen %}
                     {% if item.name in recipes.allergens %}
                     <option value="{{item.name}}" selected>{{item.name}}</option>

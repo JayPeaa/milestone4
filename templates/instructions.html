@@ -22,7 +22,10 @@
         <div class="pop-text">
             <h4 class="center"> Additional Info </h4>
             <p class="center">Created By: <span class="highlighting"> {{ recipes.user_name }}</span> <br><br> 
-            <span class="red-text strong center">Contains</span>
+            {% if recipes.allergens %}
+             <span class="red-text strong center">Contains</span>
+            {% else %}
+            {% endif %}
             {% for allergen in recipes.allergens %}
             <span>{{ allergen }}</span>
             {% endfor %}

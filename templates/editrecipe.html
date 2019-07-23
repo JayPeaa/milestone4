@@ -7,7 +7,7 @@
         <form action="{{url_for('update_recipe', recipe_id=recipes._id)}}" method="POST">
             <div class="input-field col s12 l8 m8">
                 <input value="{{recipes.recipe_name}}" id="recipe_name" name="recipe_name" type="text" class="validate" maxlength="25" required>
-                <label class="white-text active" for="recipename">Recipe Name</label>
+                <label class="white-text active" for="recipe_name">Recipe Name</label>
             </div>
             <div class="input-field col s12 l2 m2">
                 <select id="skill_level" name="skill_level" required>
@@ -53,7 +53,7 @@
             </div>
             <div class="input-field col s12 m4 l4">
                 <input value="{{recipes.time_required}}" id="time_required" name="time_required" type="number" class="validate" min="1" max="480" required>
-                <label class="white-text active" for="time">Time Required (In Minutes)</label>
+                <label class="white-text active" for="time_required">Time Required (In Minutes)</label>
             </div>
             <div class="input-field col s12 m4 l4">
                 <input value="{{recipes.serves}}" id="serves" name="serves" type="number" class="validate" min="1" max="10" required>
@@ -76,23 +76,14 @@
                 <label class="white-text active" for="recipe_image">Recipe Image URL</label>
             </div>
             <div class="input-field col s12 m4 l4">
-                <input value="{{session.user_name}}" id="user_name" name="user_name" type="hidden" required>
-                <label class="white-text active text-hidden" for="user_name"></label>
+                <input value="{{session.user_name}}" id="user_name" name="user_name" type="hidden">
+                <label class="white-text active text-hidden"></label>
             </div>
             <div class="input-field center col s12">
-                <input class="btn" type="submit" value="Submit Edits" required />
+                <input class="btn" type="submit" value="Submit Edits" />
             </div>
+        </form>
     </div>
-    </form>
 </div>
-</div>
-
-
-
-
-
-
-
-
 
 {% endblock %}

@@ -12,12 +12,12 @@
         <div class="col s12 m4 right">
             <h5>My<span class="highlighting"> Recipes</span></h5>
             {% for item in users_recipes %}
-               {{ item.recipe_name}} - {{ item.course_type }} <a href="{{ url_for('instructions', item_id=item._id) }}" class="right"><span class="highlighting">View Recipe</span></a></br>
+               {{ item.recipe_name}} - {{ item.course_type }} <a href="{{ url_for('instructions', item_id=item._id) }}" class="right"><span class="highlighting">View Recipe</span></a><br>
            {% endfor %}
         </div>
         <div class="col s12 l4 offset-l4 white-text ">
             <div class="input-field center">
-                <button class="btn waves-effect waves-dark white-text"><a class="white-text" href='{{url_for('logout')}}' >Sign Out</a></button>
+                <a href="{{ url_for('logout') }}" class="btn-floating blue darken-1 tooltipped waves-effect waves-dark custom-animate" data-tooltip="Exit"><i class="material-icons">directions_run</i></a>
             </div>
         </div>
     </div>

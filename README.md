@@ -1,63 +1,69 @@
 # Milestone Project 4 
-## Data Centric Development
+#### Data Centric Development
+#### Design and Build an Interactive Cooking App.
+---
 
-## Design and Build an Interactive Cooking App.
+### App Name: Cook-e
 
-# App Name: Cook-e
+##### Deployment: https://cook-e.herokuapp.com/
 
-### Deployment: https://cook-e.herokuapp.com/
+Cook-e is an interactive cooking app which allows users to share recipes online. It enables users to browse recipes uploaded by other users as well as add, edit and delete their own recipes.  This app is built using Flask and MongoDB, a NoSQL or document store database but incorporates a number or other technologies.
 
-Cook-e is an interactive cooking app which can be used to browse recipes from other users as well as add, edit and delete your own recipes.  This app is built using Flask and MongoDB at NoSQL or document store database but incorporates a large number or other technologies I have learnt as part of my studies so far.  
+Having recipes stored on line in a system which allows users to filter and quickly reference their own personal recipes at the click of a button is infinitely faster than using traditional cookbooks.  In addition with the advent of tablets and virtual assistants such as google home, more and more users are making use of digital media when preparing meals in the home. 
+
+---
 
 ## UX
 The UX has been designed with the end user in mind and as expectations in terms of front end design are ever increasing I opted to utilise Materialize.css for my design and responive layout.  Materialize.css is a library of UI components desinged by Google with the aim of providing a unified and consistent user experience.
 
-## User Stories
+#### User Stories
 
-This app would benefit individuals who wish to:
+* As the app developer I want to build an app which allowed users to share recipes in one convienient location.
+* As the app developer I want these recipes to be presented in a user friendly and secure way which allowed users to only edit or delete their own recipes.
+* As the app developer I want to create an app which was very viusal with quirky animation and a move away from a traditional text based navigation menu.
+* As a user I want an easy to use online app to upload all my own recipes and learn of new recipes shared by other users.
+* As a user I want to have my own secure area and be able to eaily reference any recipes I have personally added.
+* As a user I want to be able to find recipes faster than I would in a traditional cookbook and would like important information regarding allergies to be cleary displayed with the option to exclude recipes which contain certain allergens.
+* As a user I want to be able to see information such as, difficulty, time required toprepare and number of servings very quickly to enable me to make decisions quickly and I would also like to be able to select by course type.  This is very helpful when planning for dinner parties.
 
-use an online tool to store all of their recipes in one convienient location.
-browse a large number of recipes and also gain inspiration from recipes posted by other users.
-start improving their culinary skills as users are able to select recipes based on complexity.
-find recipes quickly and easily whilst having key important information immediately viasble, such as, allergens and time requiments.
+To enhance the user experience a more modern one-page theme has been designed. As recipes are added by users new recipe cards are created in the recipes section and stacked using the materialize responsive grid system. The app makes use of flash messaging to confirm to the user when certain actions have been completed e.g. New Recipe Added,  Changes Made and/or Recipe Deleted. Pagination has not been used for this project as it was felt that on this occassion scolling resulted in a better using experience than pagination.  Scrolling is faster and is increasingly becoming sencond nature as a result of mobile devices. Passive Event Lisenters have also been introduced in view of this and are new to chrome 51.  Cook-e include a CDN to enhance scroll performance on mobile devices.
 
-Having recipes stored on line in a system which allows users to filter and quickly reference their own personal recipes at the click of a button is infinitely faster than using traditional cookbooks.  In addition with the advent of tablets and virtual assistants such as google home, more and more users are making use of digital media when preparing meals in the home. 
-
-To enhance the user experience a more modern one-page theme has been designed. As recipes are added by users new recipe cards are created in the recipes section and stacked using the materialize responsive grid system.  Pagination has not been used for this project as it was felt that on this occassion scolling resulted in a better using experience than pagination.  Scrolling is faster and is becoming increasingly expected with the advent of tablets and smartphones.
-
-The application makes use of icons for the nav bar and various options within the app such as add, edit, delete etc.. The icons contain relevant images to make their intended purpose clear to the end user.  The use of buttons adds more of an 'App' feel as opposed to a more traditional website.  For aditional clarity tool tips have be utilised so that as the user hovers over a particular button text is displayed further explaining the action it performs.  In mobile view the app returns to a more traditional navigation menu in line with user expactaitions.
+The application makes use of icons for the nav bar and various options within the app such as add, edit, delete etc.. The icons contain relevant images to make their intended purpose clear to the end user.  The use of buttons adds more of an 'App' feel as opposed to a more traditional website.  For aditional clarity tool tips have be utilised so that as the user hovers over a particular button text is displayed further explaining the action it performs. Animation has also been added to the navigation menue to add to the user experience.  A similar effect has been use in the footer for the social media buttons. In mobile view the app returns to a more traditional navigation menu in line with user expactaitions.
 
 When a user adds a recipe to the app they can decide to link to an image of the recipe.  If they decide not to do this then a default image will be displayed automatically.  This helps to ensure the apps remains aestetically pleasing and uniform in the event a users opps out of adding a photo.  
 
-Certain options are only avialbe to users once logged in for example users who are not logged in will be unable to view the Add, Edit, Delete and Log out buttons.  For the scope of this project this is deemed a suitable way to control user access rights although it is recognised that in the real world futher work would need to be conducted to the back end in order to prevent a potential 'hacking' scenario.  That said, however, this project goes a lot further than required as part of the project brief in that there is a login and registration page included which was not actually required.  User passwords are also encrypted using brypt to hash any passwords for extra security.
+Certain options are only avialbe to users once logged in, for example users who are not logged in will be unable to view the Add, Edit, Delete and Log out buttons.  For the scope of this project this is deemed a suitable way to control user access rights although it is recognised that in the real world futher work would need to be conducted on the back end in order to prevent a potential 'hacking' scenario.  That said, however, this project goes a lot further than required as part of the project brief in that there is a login and registration page included which was not actually required.  User passwords are also encrypted using brypt to hash any passwords for extra security.  
 
 A user may wish to perform the following actions:
 
-* Browser and Filter recipes in the recipes section
-* Register and account in order to:
+* Browse and Filter recipes in the recipes section
+* Register an account
 * Add or View individual recipes via the recipes section
-* View their own recipes via the recipes section or profile section
+* View their own recipes via the recipes section or profile
 * Edit or Delete their own recipes
 * contact us more traditional means (post/phone/email).
 * reach out to us on social media.
-* The site provides all these options to the end user and is very easy to utilise and navigate.
+* The site provides all these options to the end user and is very easy to use and navigate.
 
 Wireframes for this project are available here https://github.com/JayPeaa/milestone4-cook-e/blob/master/Wireframes%20Milestone%204.pdf
 
-Features
+##Features
 The main features of the App are:
 
-Clear and Easy to Use Navigation
-An online repository of recipes with Create, Read, Update and Delete functionality
-A contact section, about page and social media channels
+*Clear and easy to use navigation
+*Good use of colour and modern design
+*Fully responsive with a mobile first approach
+*An online repository of recipes with Create, Read, Update and Delete functionality
+*A contact section, about page and social media channels
 
-Future development
+##Future development
 
-Connecting this app to virtual home assistants such as Alexa or Google Home would make such an app far more accessible and practicle for the average user.
+Connecting this app to virtual home assistants such as Alexa or Google Home would make Cook-e far more accessible and practicle for the modern day user.
 Whilst the current registration and login pages go someway towards providing security there is some additional work that would be required which was also outside the scope of this milestone project.  This includes adding user profile images and a means to update, reset or delete user accounts and profile information.
+
 Using Ajax and JQuery will allow for instant results when filtering without compromising load speeds which would help to improve the user experience when browsing recipes.
 
-Technologies
+##Technologies
 The site is built using HTML, CSS, NodeSass, JavaScript, jQuery, Materialize, Flask, Python and mongoDB.  It also makes use of the Jinja2 templating language. Usage of any libraries or CDNs is documented below:
 
 CDN Usages

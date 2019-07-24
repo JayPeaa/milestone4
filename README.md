@@ -1,18 +1,18 @@
-#Milestone Project 4 
-##Data Centric Development
+# Milestone Project 4 
+## Data Centric Development
 
-##Design and Build an Interactive Cooking App.
+## Design and Build an Interactive Cooking App.
 
-#App Name: Cook-e
+# App Name: Cook-e
 
-###Deployment: https://cook-e.herokuapp.com/
+### Deployment: https://cook-e.herokuapp.com/
 
 Cook-e is an interactive cooking app which can be used to browse recipes from other users as well as add, edit and delete your own recipes.  This app is built using Flask and MongoDB at NoSQL or document store database but incorporates a large number or other technologies I have learnt as part of my studies so far.  
 
-##UX
+## UX
 The UX has been designed with the end user in mind and as expectations in terms of front end design are ever increasing I opted to utilise Materialize.css for my design and responive layout.  Materialize.css is a library of UI components desinged by Google with the aim of providing a unified and consistent user experience.
 
-##User Stories
+## User Stories
 
 This app would benefit individuals who wish to:
 
@@ -33,14 +33,14 @@ Certain options are only avialbe to users once logged in for example users who a
 
 A user may wish to perform the following actions:
 
-*Browser and Filter recipes in the recipes section
-*Register and account in order to:
-*Add or View individual recipes via the recipes section
-*View their own recipes via the recipes section or profile section
-*Edit or Delete their own recipes
-*contact us more traditional means (post/phone/email).
-*reach out to us on social media.
-*The site provides all these options to the end user and is very easy to utilise and navigate.
+* Browser and Filter recipes in the recipes section
+* Register and account in order to:
+* Add or View individual recipes via the recipes section
+* View their own recipes via the recipes section or profile section
+* Edit or Delete their own recipes
+* contact us more traditional means (post/phone/email).
+* reach out to us on social media.
+* The site provides all these options to the end user and is very easy to utilise and navigate.
 
 Wireframes for this project are available here https://github.com/JayPeaa/milestone4-cook-e/blob/master/Wireframes%20Milestone%204.pdf
 

@@ -255,9 +255,8 @@ def register():
     '''
     if request.method == 'POST':
         users = user_coll
-        existing_user = users.find_one,
+        existing_user = users.find_one
         ({'user_name': request.form['user_name']})
-        print(existing_user)
 
         if existing_user is None:
             hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'),
@@ -272,6 +271,7 @@ def register():
             return redirect(url_for("profile"))
 
         flash('That username already existis!', 'flashstyling')
+
         return redirect(url_for("register"))
 
     return render_template('register.html')

@@ -48,7 +48,7 @@ A user may wish to perform the following actions:
 See here for [Wireframes]( https://github.com/JayPeaa/milestone4-cook-e/blob/master/Wireframes%20Milestone%204.pdf)
 
 ## Database Considerations
-Due to the relative simplicity of this app a noSQL database was selected.  The This was the starting point for this data centric project. See here for the [database schema]()
+Due to the relative simplicity of this app a noSQL database was selected.  The This was the starting point for this data centric project. See here for the [database schema](https://github.com/JayPeaa/milestone4-cook-e/blob/master/static/wireframes_schema/Cook-e%20Schema.pdf)
 
 ## Features
 The main features of the App are:

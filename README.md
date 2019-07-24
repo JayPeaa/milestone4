@@ -251,4 +251,4 @@ Special thanks to the Code Institute Slack Community, CI Tutors and project ment
 
 ## Licensing 
 
-Released with MIT licensing rights 
+Released with MIT [licensing rights](https://github.com/JayPeaa/milestone4-cook-e/blob/master/license.md) 

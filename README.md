@@ -21,13 +21,13 @@ The UX has been designed with the end user in mind and as expectations in terms 
 
 #### User Stories
 
-- As the app developer I want to build an app which allowed users to share recipes in one convenient location.
-- As the app developer I want these recipes to be presented in a user friendly and secure way which allows users to only edit or delete their own recipes.
-- As the app developer I want to create an app which was very visual with quirky animation and a move away from a traditional text-based navigation menu.
+- As the app developer I want to build an app which allows users to share recipes in one convenient location.
+- As the app developer I want these recipes to be presented in a user friendly way and secure environment which allows users to only edit or delete their own recipes.
+- As the app developer I want to create an app which is aesthetically pleasing with quirky animation and a move away from a traditional text-based navigation menu.
 - As a user I want an easy to use online app to upload all my own recipes and learn of new recipes shared by other users.
 - As a user I want to have my own secure area and be able to easily reference any recipes I have personally added.
-- As a user I want to be able to find recipes faster than I would in a traditional cookbook and would like important information regarding allergies to be clearly displayed with the option to exclude recipes which contain certain allergens.
-- As a user I want to be able to see information such as, difficulty, time required to prepare and number of servings very quickly to enable me to make decisions quickly and I would also like to be able to select by course type. This is very helpful when planning for dinner parties.
+- As a user I want to be able to find recipes faster than I would in a traditional cookbook and would like important information regarding allergens to be clearly displayed. I would also like a way to exclude recipes which contain certain allergens.
+- As a user I want to be able to see information such as, difficulty, time required to prepare and number of servings very quickly to enable me to make efficient decisions and I would also like to be able to select by course type. This is very helpful when planning for dinner parties.
 
 ---
 
@@ -52,10 +52,13 @@ A user may wish to perform the following actions:
 
 See here for [Wireframes](https://github.com/JayPeaa/milestone4-cook-e/blob/master/Wireframes%20Milestone%204.pdf)
 
+---
 
 ## Database Considerations
 
 Due to the relative simplicity of this app a NoSQL database was selected. The This was the starting point for this data centric project. See here for the [database schema](https://github.com/JayPeaa/milestone4-cook-e/blob/master/static/wireframes_schema/Cook-e%20Schema.pdf)
+
+---
 
 ## Features
 
@@ -67,6 +70,8 @@ The main features of the App are:
 - An online repository of recipes with Create, Read, Update and Delete functionality
 - A contact section, about page and social media channels
 
+---
+
 ## Future developments
 
 Connecting this app to virtual home assistants such as Alexa or Google Home would make Cook-e far more accessible and practical for the modern-day user. Whilst the current registration and login pages go some way towards providing security there is some additional work that would be required which was also outside the scope of this milestone project. This includes adding user profile images and a means to update, reset or delete user accounts and profile information.
@@ -75,7 +80,7 @@ Using Ajax and jQuery will allow for instant results when filtering without comp
 
 The ability to create a user list of liked recipes as well as the ability to filter by popularity would be a great enhancement to make in the future. In addition to implementing some controls around the like button to only allow registered users to like a recipe and limit the button to one click per user.
 
-Security would need to be enhanced prior to making an app like this live. Security has not been covered in depth in this programmed to this point so whilst this milestone goes further than is required there is still more work to be done.
+Security would need to be enhanced prior to making an app like this live. Security has not been covered in depth in this course to this point so whilst this milestone goes further than is required there is still more work to be done.
 
 Forms have been implemented with HTML with categories on select menus referencing the database. This can lead to some vulnerabilities from a security perspective. Utilising WTForms and hard coding form fields where dynamic updating is not required would help protect the underlying database. Course Category is a field which would be enabled to allow users to add their own categories in a future release.
 
@@ -85,20 +90,21 @@ Ability to upload recipe images would be preferable to hotlinking to images onli
 
 Data Protections (GDPR) would also need to be given full consideration along with other legalities such as privacy policies, cookie notices and terms of service prior to making such an app available to use.
 
+---
 
 ## Technologies
 
 The site is built using:
 
-- [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
-- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)
-- [Node Sass](https://github.com/sass/node-sass)
-- [jQuery](https://jquery.com/)
-- [Materialize](https://materializecss.com/)
-- [Flask](https://flask.palletsprojects.com/en/1.1.x/)
-- [Python](https://www.python.org/)
-- [MongoDB](https://www.mongodb.com/)
-- [Jinja2](http://jinja.pocoo.org/docs/2.10/)
+* [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)
+* [Node Sass](https://github.com/sass/node-sass)
+* [jQuery](https://jquery.com/)
+* [Materialize](https://materializecss.com/)
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+* [Python](https://www.python.org/)
+* [MongoDB](https://www.mongodb.com/)
+* [Jinja2](http://jinja.pocoo.org/docs/2.10/)
 
 #### CDNs and Library Usage
 
@@ -120,9 +126,11 @@ The following CDNs have been used to create this app.
 
 - [https://unpkg.com/default-passive-events](https://unpkg.com/default-passive-events)
 
+---
+
 ## Testing
 
-To ensure any ;form&#39; postings were as anticipated it was common practice to print to the console to determine if the outputs and data structures were as expected. This was done prior to allowing user input to post directly to the database collections.
+To ensure any database postings were as anticipated it was common practice to print to the console to determine if the outputs and data structures were as expected. This was done prior to allowing user input to be posted directly to the database collections.
 
 Recipes were added manually via the front end as part of the testing process which flagged various issues which could then be rectified. During user acceptance testing it became evident that additional controls were required on form inputs to maintain the visual appeal of the app as well as prevent unusual input. Maxlength, Min, Max and required attributes and classes were used to make the app more robust.
 
@@ -166,6 +174,8 @@ During testing it was identified that users were unable to save two recipes with
 
 During mobile testing the add and logout buttons did not appear in the menu as a result of a typo in the jinja formatting. This was subsequently fixed but would have been a sever bug had it not been detected as it would have prevented users from being unable to add recipes.
 
+---
+
 ## Deployment
 
 Throughout the projects regular git commits were made to ensure any working files were backed up. Numerous commits have been logged on the main branch in GitHub. An additional branch was created when working on the login and registration pages. Git checkout was used to switch between branches in the terminal along with push, pull and merge requests to incorporate all change on the main branch following review. Whilst there were no other collaborators on this project it was felt that this represented best practice. It maintained segregation between the registration and login work and the rest of the app. The project has been successfully deployed on [Heroku](https://www.heroku.com/).
@@ -173,6 +183,30 @@ Throughout the projects regular git commits were made to ensure any working file
 AWS cloud9 has been used throughout this project as the IDE of choice.
 
 Issues were encountered when initially deploying the app to Heroku. This was due to Heroku auto detecting Node's package.json file and creating a Node build pack rather than a Python build pack. In order to rectify this issue, the build pack was manually deleted in Heroku and replaced with a python build pack. The package.json file was then removed before pushing the app to Heroku. After the app was successfully deployed to Heroku the package.json file was reinstated.
+
+In preparation for final deployment to Heroku the following procedure was followed:
+
+* First conceal the secret key by setting an environment variable in the ```.bashrc``` file.
+
+* The secret key was then added to the config vars within Heroku.
+
+* Ensure the debuger in run.py is set to False.
+
+* Confirm the Procfile and requirements.txt files have been updated.
+
+* Once the above has been completed use the following commands to push to github.
+
+```
+git add .
+git commit -m "Final Commit"
+git push
+```
+* Finally use the following command to push / deploy to Heroku.
+
+```
+git push heroku master
+```
+---
 
 ### File Structure
 
@@ -238,6 +272,19 @@ templates (folder)
    recipes.html (file)
    register.html (file)
 ```
+---
+
+## Author
+
+* John Hay - Code Institute Student
+
+---
+
+## License 
+
+Released under the MIT [license](https://github.com/JayPeaa/milestone4-cook-e/blob/master/license.md) 
+
+---
 
 ## Credits
 
@@ -247,8 +294,8 @@ All images and media used on this site have been labelled for reuse / non-commer
 
 The favicon was generated by a 3rd party site: [https://favicon.io/favicon-generator/](https://favicon.io/favicon-generator/).
 
-Special thanks to the Code Institute Slack Community, CI Tutors and project mentor Tony Montaro for support and guidance provided during this project.
+### Acknowledgments
 
-## Licensing 
+Special thanks to the Code Institute Slack Community CI Tutors and project mentor Tony Montaro for support and guidance provided during this project.  
 
-Released with MIT [licensing rights](https://github.com/JayPeaa/milestone4-cook-e/blob/master/license.md) 
+---

@@ -24,7 +24,7 @@
                       <option value="{{dif.level}}">{{dif.level}}</option>
                   {% endfor %}
             </select>
-                    <label>Difficulty</label>
+                    <label class="white-text">Difficulty</label>
                 </div>
             </div>
             <div class="input-field col s12 m6 l3">
@@ -34,7 +34,7 @@
                       <option value="{{type.name}}">{{type.name}}</option>
                   {% endfor %}
                 </select>
-                <label>Course</label>
+                <label class="white-text">Course</label>
             </div>
 
             <div class="input-field col s12 l6">
@@ -44,7 +44,7 @@
                       <option value="{{item.name}}">{{item.name}}</option>
                   {% endfor %}
                 </select>
-                <label>Allergens</label>
+                <label class="white-text">Allergens</label>
                 <button class="submit-btn btn-small waves-effect waves-light right" type="submit">Submit</button>
             </div>
         </form>
@@ -53,7 +53,7 @@
         <form method="POST" action="search">
             <div class="col s12">
                 <input id="search" type="search" name="search">
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                <label class="white-text label-icon" for="search"><i class="material-icons">search</i></label>
                 <button class="submit-btn btn-small waves-effect waves-light right" type="submit">Submit</button>
             </div>
         </form>

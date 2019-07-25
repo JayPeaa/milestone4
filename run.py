@@ -20,10 +20,10 @@ def mongo_connect(url):
     """
     try:
         conn = pymongo.MongoClient(url)
-        print("Mongo is connected!")
+        print("You are now connected to MongoDB")
         return conn
     except pymongo.errors.ConnectionFailure as e:
-        print("Could not connect to Mongo: %s") % e
+        print("Could not connect to Database: %s") % e
 
 
 conn = mongo_connect(MONGODB_URI)

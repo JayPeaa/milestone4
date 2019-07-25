@@ -255,8 +255,8 @@ def register():
     '''
     if request.method == 'POST':
         users = user_coll
-        existing_user = users.find_one
-        ({'user_name': request.form['user_name']})
+        existing_user = users.find_one(
+            {'user_name': request.form['user_name']})
 
         if existing_user is None:
             hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'),

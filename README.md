@@ -50,7 +50,7 @@ A user may wish to perform the following actions:
 - reach out to us on social media.
 - The site provides all these options to the end user and is very easy to use and navigate.
 
-See here for [Wireframes](https://github.com/JayPeaa/milestone4-cook-e/blob/master/Wireframes%20Milestone%204.pdf)
+See here for [Wireframes](https://github.com/JayPeaa/milestone4/blob/master/static/wireframes_schema/Wireframes%20Milestone%204.pdf)
 
 ---
 
